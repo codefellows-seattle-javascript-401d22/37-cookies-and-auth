@@ -21,6 +21,25 @@ class Auth extends React.Component {
 
   handleChange(e) {
     let { name, value } = e.target;
+
+    this.setState({
+      [name]: value,
+      usernameError: name === 'username' && !value ? 'username required' : null,
+      emailError: name === 'email' && !value ? 'email required' : null,
+      passwordError: name === 'password' && !value ? 'password required' : null,
+    })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.onComplete(this.state)
+      .then( () => {
+        this.setState({ username: '', email: '', password: '' })
+      })
+      .catch( error => {
+        console.error(error);
+        this.setState({error});
+      });
   }
 
 

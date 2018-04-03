@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 import appCreateStore from '../../lib/app-create-store';
-import LandingContainer from '../landing';
+import Landing from '../landing';
 
 let store = appCreateStore();
 
@@ -30,3 +30,5 @@ class App extends React.Component {
     )
   }
 }
+
+export default App;

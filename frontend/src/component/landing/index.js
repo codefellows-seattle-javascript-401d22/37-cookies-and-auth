@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Auth from '../auth-form';
+import Auth from '../auth';
 import * as util from '../../lib/util.js';
 import {signupRequest, loginRequest} from '../../action/auth-actions.js';
 
@@ -12,7 +12,7 @@ class Landing extends React.Component {
 
     return (
       <section>
-        <AuthForm auth={params.auth} onComplete={handleComplete} />
+        <Auth auth={params.auth} onComplete={handleComplete} />
       </section>
     )
   }
