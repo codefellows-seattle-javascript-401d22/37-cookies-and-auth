@@ -13,4 +13,5 @@ describe('Auth Reducer', () => {
     let result = authReducer(state, {type: null});
     expect(result).toEqual(state);
   });
+
 });

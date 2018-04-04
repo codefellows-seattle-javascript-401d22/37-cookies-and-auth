@@ -27,5 +27,4 @@ export const profileCreateRequest = (profile) => (dispatch, getState) => {
     dispatch(profileCreate(res.body));
     return res;
   })
-
 }
