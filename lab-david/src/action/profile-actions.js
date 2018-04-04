@@ -2,7 +2,7 @@
 
 import superagent from 'superagent';
 
-export const profleCreate = profile => ({
+export const profileCreate = profile => ({
   type: 'PROFILE_CREATE',
   payload: profile,
 })
