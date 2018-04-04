@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import appCreateStore from '../../lib/app-create-store.js';
 
-import NavBar from './../nav/';
-import Dashboard from './../dashboard/';
+import NavBar from '../nav/';
+import Dashboard from '../dashboard/';
 
 let store = appCreateStore();
 
