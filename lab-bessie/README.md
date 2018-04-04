@@ -41,8 +41,6 @@ This is a front end application similar to Instagram.
 
 3. Within the directory `lab-bessie` in your terminal run `npm i` to install dependancies.
 
-4. `touch .dev.env` in `lab-bessie` and add `API_URL=http://localhost:3000` to the file in your editor of choice.
+4. To build the application locally, run `npm run watch`. This will build the app in memory.
 
-5. To build the application locally, run `npm run watch`. This will build the app in memory.
-
-6. Access the app by navigating to `http://locahost:8080` in your browser.
+5. Access the app by navigating to `http://locahost:8080` in your browser.
