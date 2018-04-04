@@ -1,6 +1,5 @@
 import React from 'react';
 import * as util from '../../lib/util';
-// import * as util from './../../lib/util.js';
 
 class UserForm extends React.Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class UserForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.onComplete(this.state)
       .then( () => {
@@ -31,8 +30,7 @@ class UserForm extends React.Component {
       });
   }
 
-  handleChange(e) {
-    console.log('params: ', this.props.auth);
+  handleChange = (e) => {
     let { name, value } = e.target;
     this.setState({
       [name]: value,
