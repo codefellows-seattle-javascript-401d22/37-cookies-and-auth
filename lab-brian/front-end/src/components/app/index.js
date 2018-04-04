@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Link } from 'raect-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import appCreateStore from '../../lib/app-create-store.js';
 import Navbar from '../navbar';
 import Dashboard from '../dashboard';
