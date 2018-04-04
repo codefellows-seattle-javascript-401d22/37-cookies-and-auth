@@ -1,0 +1,16 @@
+.auth-form {
+  display: block;
+  width: 70%;
+  margin: $gutter-sm auto;
+
+  input {
+    width: 65%;
+    margin: $gutter-sm auto;
+  }
+
+  button {
+    float: right;
+    display: block;
+    margin-right: 7.75vw;
+  }
+}
