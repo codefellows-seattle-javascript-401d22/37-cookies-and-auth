@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import AuthForm from '../auth';
+import AuthForm from '../auth-form';
 import * as util from '../../lib/util.js';
-import { signupRequest, loginRequest } from '../../action/auth-actions.js';
+import { signupRequest, loginRequest } from '../../actions/auth-actions.js';
+
 
 class Dashboard extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class Dashboard extends React.Component {
 
     return(
       <section>
+        
         <AuthForm
           auth={params.auth}
           onComplete={handleComplete}
