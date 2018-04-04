@@ -1,0 +1,25 @@
+// font
+$font: Avenir, sans-serif;
+$font-large: 5vw;
+$font-small: $font-large/4;
+
+// colors
+$primary-color: #4c4c4c;
+$secondary-color: #e0e0e0;
+$tertiary-color: #bcbcbc;
+
+// gutter
+$margin-auto: 0 auto;
+$gutter-lg: 5vw;
+$gutter-sm: $gutter-lg/2;
+
+// multi-purpose
+$border-radius: .5vw;
+
+// input
+$input-border: 1px $primary-color solid;
+$input-padding: 1.1vw 2vw;
+$input-padding-sm: .5vw 2vw;
+
+// button
+$button-padding: 1.2vw 2vw 1.2vw 2vw;

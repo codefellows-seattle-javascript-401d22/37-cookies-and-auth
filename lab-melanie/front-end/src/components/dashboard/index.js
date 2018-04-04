@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as util from '../../lib/util.js';
 import AuthForm from '../auth-form/';
-import { signUpRequest, signInRequest } from '../../actions/auth-actions.js';
+import { signUpRequest, loginRequest } from '../../actions/auth-actions.js';
 
 class Dashboard extends Component {
   render() {
     let { params } = this.props.match;
-    let handleComplete = params.auth === 'login' ? this.props.signin : this.props.signup;
+    let handleComplete = params.auth === 'login' ? this.props.login : this.props.signup;
 
     return (
       <section className='dashboard'>
@@ -23,7 +23,7 @@ class Dashboard extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     signup: user => dispatch(signUpRequest(user)),
-    signin: user => dispatch(signInRequest(user)),
+    login: user => dispatch(loginRequest(user)),
   };
 };
 

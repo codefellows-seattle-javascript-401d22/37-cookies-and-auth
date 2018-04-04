@@ -42,32 +42,34 @@ export default class AuthForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        {this.props.auth === 'signup' ?
+      <form className='auth-form' onSubmit={this.handleSubmit}>
+        <div className='input'>
+          {this.props.auth === 'signup' ?
+            <input
+              type='email'
+              name='email'
+              placeholder='enter email'
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+            : undefined }
+
           <input
-            type='email'
-            name='email'
-            placeholder='enter email'
-            value={this.state.email}
+            type='text'
+            name='username'
+            placeholder='enter username'
+            value={this.state.username}
             onChange={this.handleChange}
           />
-          : undefined }
 
-        <input
-          type='text'
-          name='username'
-          placeholder='enter username'
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-
-        <input
-          type='password'
-          name='password'
-          placeholder='enter password'
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
+          <input
+            type='password'
+            name='password'
+            placeholder='enter password'
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+        </div>
 
         <button type='submit'>{this.props.auth}</button>
       </form>
