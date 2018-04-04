@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as util from '../../lib/util.js';
 import AuthForm from '../auth-form/';
 import { signUpRequest, loginRequest } from '../../actions/auth-actions.js';
 

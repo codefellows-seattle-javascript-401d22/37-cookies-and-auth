@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as util from '../../lib/util.js';
+import { photoToDataUrl } from '../../lib/util.js';
 
 export default class ProfileForm extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ export default class ProfileForm extends Component {
       let { files } = e.target;
       let avatar = files[0];
       this.setState({ avatar });
-      util.photoToDataUrl(avatar)
+      photoToDataUrl(avatar)
         .then(preview => this.setState({ preview }))
         .catch(console.error);
     }

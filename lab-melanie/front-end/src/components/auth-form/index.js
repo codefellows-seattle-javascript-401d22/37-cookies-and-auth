@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as util from '../../lib/util.js';
 
 export default class AuthForm extends Component {
   constructor(props) {
@@ -71,7 +70,10 @@ export default class AuthForm extends Component {
           />
         </div>
 
-        <button type='submit'>{this.props.auth}</button>
+        {this.props.auth === 'signup' ? 
+          <button type='submit'>sign Up</button>
+          : <button type='submit'>sign In</button>
+        }
       </form>
     );
   }
