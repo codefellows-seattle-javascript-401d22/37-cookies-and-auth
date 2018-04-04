@@ -30,6 +30,11 @@ export const loginRequest = (user) => (dispatch) => {
     .auth(user.username, user.password)
     .then( res => {
       dispatch(tokenSet(res.text));
+      try {
+        localStorage.token = res.text;
+      } catch(err) {
+        console.error(err);
+      }
       return;
     })
 } 
