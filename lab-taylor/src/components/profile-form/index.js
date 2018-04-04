@@ -12,6 +12,12 @@ class ProfileForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    if(props.profile) {
+      this.setState(props.profile);
+    }
+  }
+
   handleChange(e) {
     let { type, name } = e.target;
 
@@ -33,4 +39,34 @@ class ProfileForm extends React.Component {
     e.preventDefault();
     this.props.onComplete(this.state);
   }
+
+  render() {
+    return(
+      <form 
+        className='profile-form'
+        onSubmit={this.handleSubmit}
+      >
+        <img src={this.state.preview} />
+
+        <input  
+          type='file'
+          name='avatar'
+          onChange={this.handleChange}
+        />
+
+        <textarea
+          type='text'
+          name='bio'
+          value={this.state.bio}
+          onChange={this.handleChange}>
+        </textarea>
+
+        <button type='submit'>{this.props.buttonText}</button>
+        
+
+      </form>
+    )
+  }
 }
+
+export default ProfileForm;
