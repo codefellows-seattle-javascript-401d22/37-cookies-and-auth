@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Link} from 'react-router-dom';
 import appCreateStore from '../../lib/app-create-store';
 import Landing from '../landing';
 import Navigation from '../nav';
+import Header from '../header';
 
 let store = appCreateStore();
 
@@ -14,10 +15,8 @@ class App extends React.Component {
         <Provider store={store}>
           <BrowserRouter>
             <section>
-              <header>
-                <h1>File Organizer</h1>
-                <Navigation />
-              </header>
+              <Header />
+              <Navigation />
               <Route path='/welcome/:auth' component={Landing} />
             </section>
           </BrowserRouter>
