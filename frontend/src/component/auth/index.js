@@ -48,7 +48,7 @@ class Auth extends React.Component {
         className='auth-form'>
         {util.renderIf(this.props.auth==='signup',
           <input 
-            type='emai'
+            type='email'
             name='email'
             placeholder='email'
             value={this.state.email}
