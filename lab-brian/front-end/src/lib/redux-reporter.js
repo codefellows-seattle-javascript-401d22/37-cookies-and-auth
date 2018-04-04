@@ -1,8 +1,8 @@
 const reporter = store => next => action => {
-  console.log('REPORTER-ACTION: ', action);
+  // console.log('REPORTER-ACTION: ', action);
   try {
     let result = next(action);
-    console.log('REPORTER-STATE: ', store.getState());
+    // console.log('REPORTER-STATE: ', store.getState());
     return result;
   } catch (error) {
     error.action = action;

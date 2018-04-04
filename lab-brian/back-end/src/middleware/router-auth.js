@@ -26,8 +26,8 @@ export default new Router()
   })
   .catch(next)
 })
-.get('/login', basicAuth, (req, res, next) => {
-  log('__ROUTE__ GET /login')
+.get('/signin', basicAuth, (req, res, next) => {
+  log('__ROUTE__ GET /signin')
   req.user.tokenCreate()
   .then((token) => {
     let cookieOptions = {maxAge: daysToMilliseconds(7)}

@@ -12,7 +12,7 @@ export default class App extends React.Component {
   render() {
     return (
       <main className='hotpix'>
-        <Provider>
+        <Provider store={store}>
           <BrowserRouter>
             <section>
               <Navbar />

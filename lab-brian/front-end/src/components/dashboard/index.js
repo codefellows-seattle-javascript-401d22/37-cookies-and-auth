@@ -18,8 +18,8 @@ class Dashboard extends React.Component {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    signin: (user) => dispatch(signupRequest(user)),
-    signup: (user) => dispatch(signinRequest(user)),
+    signup: (user) => dispatch(signupRequest(user)),
+    signin: (user) => dispatch(signinRequest(user)),
   };
 };
 

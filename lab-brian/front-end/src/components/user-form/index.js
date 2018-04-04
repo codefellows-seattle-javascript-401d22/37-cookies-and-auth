@@ -32,6 +32,7 @@ class UserForm extends React.Component {
   }
 
   handleChange(e) {
+    console.log('params: ', this.props.auth);
     let { name, value } = e.target;
     this.setState({
       [name]: value,
