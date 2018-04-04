@@ -1,6 +1,6 @@
 # ![cf](https://i.imgur.com/7v5ASc8.png) Lab 37: Cookies & Auth
 
-## Configuration
+## Front-End Configuration
 * **README.md**
 * **.gitignore**
 * **.eslintrc**
@@ -24,16 +24,15 @@
 
 ## Installation
 #### Back-end
-1. This app uses the back-end code from a previous lab, [Lab 14: Two Resource API](https://github.com/melaniebcohen/14-two-resource-api/tree/master/melanie-lab). To start, download the files from that repository.
-2. `cd` to the repository directory and run `npm i`
-3. Use `npm run start` to run the app locally (make sure a local Mongo database is running). Alternatively, use the `npm run start-db` script also included in the `package.json` file.
+1. This app uses the back-end code that is forked from [Sluggram](https://github.com/slugbyte/sluggram). To start, download the files within this repository's `back-end` folder.
+2. `cd` to the `back-end` folder and run `npm i`
+3. Use `npm run start` to run the app locally (make sure a local Mongo database is running) on `localhost:3000`.
 4. Verify your server is running using a local `.env` file before launching the front-end app.
 
 #### Front-end
-1. Once your back-end is running, download the files from this repository
-2. `cd` to the repository directory and run `npm i`
-3. Use `npm run watch` to run the app locally with a local `.env` file.
-4. Navigate to `localhost:<PORT>` to explore the app
+1. Once you've downloaded this repo's code, `cd` to the repository directory and run `npm i`
+2. Use `npm run watch` to run the app locally with a local `.dev.env` file.
+3. Navigate to `localhost:8080` to sign up for the app and subsequently sign in. More functionality to come!
 
 ## Application Details
 * This app uses `React` and is comprised of the following components:
@@ -43,14 +42,13 @@
   <Provider />
     <BrowserRouter />
       <Route />
+        <NavBar />
         <Dashboard />
-          <ListForm />
+          <AuthForm />
 ```
 
 ## Redux
 This app also uses `Redux` with the following reducers. Action creators are built for each interaction.
 
-* `LIST_FETCH`
-* `LIST_CREATE`
-* `LIST_UPDATE`
-* `LIST_DELETE`
+* `TOKEN_SET`
+* `TOKEN_DELETE`
