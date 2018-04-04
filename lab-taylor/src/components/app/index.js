@@ -18,7 +18,7 @@ class App extends React.Component{
             
           <section>
               <header>
-                <h1>cfgram</h1>
+                <h1>instaclone.</h1>
                 <nav>
                   <ul>
                     <li><Link to='/welcome/signup'>signup</Link></li>
