@@ -27,6 +27,7 @@ class ProfileForm extends React.Component{
       let {files} = e.target;
       console.log('files', files);
       let avatar = files[0];
+      this.setState({avatar});
       util.photoToDataURL(avatar)
         .then(preview => this.setState({preview}))
         .catch(console.error);
