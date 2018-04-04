@@ -32,4 +32,4 @@ export const loginRequest = (user) => (dispatch) => {
       dispatch(tokenSet(res.text));
       return;
     })
-}
+} 

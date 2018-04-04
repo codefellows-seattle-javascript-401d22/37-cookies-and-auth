@@ -38,10 +38,9 @@ class Auth extends React.Component {
       })
       .catch( error => {
         console.error(error);
-        this.setState({error});
+        this.setState({error}, () => console.log(this.state));
       });
   }
-
 
   render() {
     return( 
@@ -65,7 +64,8 @@ class Auth extends React.Component {
           type='password'
           name='password'
           placeholder='password'
-          value={this.state.handleChange} />
+          value={this.state.password}
+          onChange={this.handleChange} />
         <button type='submit'>{this.props.auth}</button>
       </form>
     )

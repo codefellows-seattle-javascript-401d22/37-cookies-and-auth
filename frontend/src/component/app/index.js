@@ -18,7 +18,7 @@ class App extends React.Component {
                 <nav>
                   <ul>
                     <li><Link to='/welcome/signup'>Sign Up</Link></li>
-                    <li><Link to='/welcome/signin'>Sign In</Link></li>
+                    <li><Link to='/welcome/login'>Sign In</Link></li>
                   </ul>
                 </nav>
               </header>
