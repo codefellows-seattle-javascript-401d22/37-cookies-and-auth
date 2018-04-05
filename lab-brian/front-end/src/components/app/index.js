@@ -4,11 +4,20 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import appCreateStore from '../../lib/app-create-store.js';
 import Navbar from '../navbar';
 import Dashboard from '../dashboard';
+import Settings from '../settings';
 import Footer from '../footer';
+import * as util from '../../lib/util.js';
+import { tokenSet }  from '../../actions/user-actions.js';
 
 const store = appCreateStore();
 
-export default class App extends React.Component {
+class App extends React.Component {
+  componentDidMount() {
+    let token = util.readCookie('X-Sluggram-Token');
+    if (token) {
+      this.props.tokenSet(token);
+    }
+  }
   render() {
     return (
       <main className='hotpix'>
@@ -17,6 +26,7 @@ export default class App extends React.Component {
             <section>
               <Navbar />
               <Route path='/user/:auth' component={Dashboard} />
+              <Route path='/settings' component={Settings} />
               <Footer />
             </section>
           </BrowserRouter>
@@ -25,3 +35,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default App;
