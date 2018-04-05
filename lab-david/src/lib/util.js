@@ -10,7 +10,7 @@ export const logError = (...args) => {
 
 export const renderIf = (test, component) => test ? component : undefined;
 
-export const classToggler = (options) => Object.keys(options).filter(key => !!options[key].join(' '));
+export const classToggler = options => Object.keys(options).filter(key => !!options[key].join(' '));
 
 export const photoToDataURL = file => {
   return new Promise((resolve, reject) => {
@@ -49,3 +49,16 @@ export const readCookie = name => {
     if(cookie.indexOf(nameEQ) == 0) return cookie.substring(nameEQ.length, cookie.length);
   })
 }
+
+export const createCookie = (name, value, days) => {
+  if(days){
+    let date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    let expires = `; expires=${date.toGMTString()}`;
+  } else {
+    expires = '';
+  }
+  document.cookie = `${name}=${value}${expires}; path=/`;
+}
+
+export const deleteCookie = name => createCookie(name, '', -1);
