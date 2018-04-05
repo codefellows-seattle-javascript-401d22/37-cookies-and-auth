@@ -1,0 +1,39 @@
+body {
+  font: 100% $font;
+  background: $tertiary-color;
+}
+
+h2 {
+  font-size: $font-large/2.5;
+  color: $primary-color;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: $tertiary-color;
+}
+
+input {
+  display: block;
+  border: $input-border;
+  padding: $input-padding;
+  border-radius: $border-radius;
+  font-family: $font;
+  font-size: $font-small;
+  width: 20vw;
+}
+
+button {
+  background: $primary-color;
+  border-radius: $border-radius;
+  padding: $button-padding;
+  color: $secondary-color;
+  font-family: $font;
+  font-size: $font-small;
+  border: none;
+  text-transform: lowercase;
+}
