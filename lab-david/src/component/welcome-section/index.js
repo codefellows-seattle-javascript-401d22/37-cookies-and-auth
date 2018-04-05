@@ -6,7 +6,7 @@ import AuthForm from '../auth-form';
 import * as util from '../../lib/util.js';
 import {signupRequest, loginRequest} from '../../action/auth-actions.js';
 
-class Dashboard extends React.Component{
+class WelcomeSection extends React.Component{
   render(){
     let {params} = this.props.match;
     let handleComplete = params.auth === 'login' ? this.props.login : this.props.signup;
@@ -27,4 +27,4 @@ let mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default connect(null, mapDispatchToProps)(WelcomeSection);

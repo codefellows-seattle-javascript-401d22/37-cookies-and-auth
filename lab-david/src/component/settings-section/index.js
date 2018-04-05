@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import ProfileForm from '../profile-form';
 import {profileCreateRequest} from '../../action/profile-actions.js';
 
-class SettingsContainer extends React.Component{
+class SettingsSection extends React.Component{
   constructor(props){
     super(props);
     this.handleProfileCreate = this.handleProfileCreate.bind(this);
@@ -43,4 +43,4 @@ let mapDispatchToProps = dispatch => ({
   profileCreate: profile => dispatch(profileCreateRequest(profile))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsSection);

@@ -51,12 +51,11 @@ export const readCookie = name => {
 }
 
 export const createCookie = (name, value, days) => {
+  let expires = '';
   if(days){
     let date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    let expires = `; expires=${date.toGMTString()}`;
-  } else {
-    expires = '';
+    expires = `; expires=${date.toGMTString()}`;
   }
   document.cookie = `${name}=${value}${expires}; path=/`;
 }

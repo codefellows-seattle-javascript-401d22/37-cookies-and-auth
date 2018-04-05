@@ -1,13 +1,15 @@
 'use strict';
 
 import React from 'react';
-import {Provider} from 'react-redux';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 import appCreateStore from '../../lib/app-create-store';
-import Dashboard from '../dashboard';
+import DashboardSection from '../dashboard-section';
+import WelcomeSection from '../welcome-section';
 import * as util from '../../lib/util.js';
-import SettingsContainer from '../settings';
+import SettingsSection from '../settings-section';
+import Navbar from '../navbar';
 import {tokenSet} from '../../action/auth-actions';
+import {connect} from 'react-redux';
 
 
 let store = appCreateStore();
@@ -23,33 +25,23 @@ class App extends React.Component{
   render(){
     return(
       <main className='cfgram'>
-        <Provider store={store}>
           <BrowserRouter>
             <section>
               <header>
-                <h1>cfgram</h1>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to='/welcome/signup'>signup</Link>
-                    </li>
-                    <li>
-                      <Link to='/welcome/login'>login</Link>
-                    </li>
-                    <li>
-                      <Link to='/settings'>settings</Link>
-                    </li>
-                  </ul>
-                </nav>
+                <Navbar />
               </header>
-              <Route path='/welcome/:auth' component={Dashboard} />
-              <Route exact path='/settings' component={SettingsContainer} />
+              {util.renderIf(!this.props.loggedIn,
+                <Route path='/welcome/:auth' component={WelcomeSection} />)}
+              <Route exact path='/settings' component={SettingsSection} />
             </section>
           </BrowserRouter>
-        </Provider>
       </main>
     )
   }
 }
 
-export default App;
+let mapStateToProps = state => ({
+  loggedIn: !!state.auth,
+})
+
+export default connect(mapStateToProps, null)(App);
