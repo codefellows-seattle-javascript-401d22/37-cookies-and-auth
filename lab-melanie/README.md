@@ -1,4 +1,7 @@
-# ![cf](https://i.imgur.com/7v5ASc8.png) Lab 37: Cookies & Auth
+# ![cf](https://i.imgur.com/7v5ASc8.png) Instaclone
+
+Lab 37: Cookies & Auth  
+Lab 38: Asset Uploads
 
 ## Front-End Configuration
 * **README.md**
@@ -8,6 +11,7 @@
 * **package.json**
   * a `build` script has been configured for building the app with webpack
   * a `watch` script has been configured for watching the app with webpack-dev-server
+  * a `test` script has been configured for running tests with Jest
 * **webpack.config.js**
 * **babelrc**
 * **src/** - contains frontend code
@@ -17,6 +21,8 @@
 * **src/actions**
 * **src/reducers**
 * **src/lib**
+* **src/test**
+* **src/test/lib** - contains mock data for tests
 * **src/style**
 * **src/style/base**
 * **src/style/lib**
@@ -32,7 +38,7 @@
 #### Front-end
 1. Once you've downloaded this repo's code, `cd` to the repository directory and run `npm i`
 2. Use `npm run watch` to run the app locally with a local `.dev.env` file.
-3. Navigate to `localhost:8080` to sign up for the app and subsequently sign in. More functionality to come!
+3. Navigate to `localhost:8080` to sign up for the app and subsequently sign in. Create a profile by navigating to the `profile settings` link on the nav bar.
 
 ## Application Details
 * This app uses `React` and is comprised of the following components:
@@ -45,6 +51,8 @@
         <NavBar />
         <Dashboard />
           <AuthForm />
+          <ProfileContainer />
+            <ProfileForm />
 ```
 
 ## Redux
@@ -52,3 +60,5 @@ This app also uses `Redux` with the following reducers. Action creators are buil
 
 * `TOKEN_SET`
 * `TOKEN_DELETE`
+* `PROFILE_CREATE`
+* `PROFILE_UPDATE` (functionality to come)

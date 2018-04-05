@@ -3,6 +3,11 @@ body {
   background: $tertiary-color;
 }
 
+h2 {
+  font-size: $font-large/2.5;
+  color: $primary-color;
+}
+
 a, button {
   cursor: pointer;
 }

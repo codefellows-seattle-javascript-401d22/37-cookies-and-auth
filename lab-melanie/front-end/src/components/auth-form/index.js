@@ -43,6 +43,11 @@ export default class AuthForm extends Component {
     return (
       <form className='auth-form' onSubmit={this.handleSubmit}>
         <div className='input'>
+          {this.props.auth === 'signup' ? 
+            <h2>sign up</h2>
+            : <h2>sign in</h2>
+          }
+
           {this.props.auth === 'signup' ?
             <input
               type='email'

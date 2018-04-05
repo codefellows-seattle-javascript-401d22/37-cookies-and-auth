@@ -37,6 +37,8 @@ export default class ProfileForm extends Component {
   render() {
     return (
       <form className='profile-form' onSubmit={this.handleSubmit}>
+        <h2>create a profile</h2>
+
         <img src={this.state.preview} />
 
         <input

@@ -26,14 +26,11 @@ class ProfileContainer extends Component {
       : this.handleProfileUpdate;
 
     return (
-      <section>
-        <h2>Profile Settings</h2>
-
+      <section className='profile-container'>
         <ProfileForm
           buttonText='create profile'
           onComplete={this.handleProfileCreate}
         />
-
       </section>
     );
   }
