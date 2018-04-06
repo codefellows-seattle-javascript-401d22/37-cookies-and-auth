@@ -1,4 +1,5 @@
 import superagent from 'superagent';
+import * as util from '../lib/util.js';
 
 export const tokenSet = token => ({
   type: 'TOKEN_SET',

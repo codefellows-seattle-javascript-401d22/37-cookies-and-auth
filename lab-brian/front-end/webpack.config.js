@@ -44,10 +44,27 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader',
+        loader: ExtractPlugin.extract({
+          use: [
+            'css-loader',
+            'resolve-url-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true, 
+                includePaths: [`${__dirname}/src/style`],
+              },
+            },
+          ],
+        }),
       },
       {
-        test: /\.(woff|woff2|ttf|eot|glyph|\.svg)$/,
+        test: /\.icon.svg$/,
+        loader: 'raw-loader',
+      },
+      {
+        test: /\.(woff|woff2|ttf|eot).*/,
+        exclude: /\.icon.svg/,
         use: [
           {
             loader: 'url-loader',
@@ -60,7 +77,7 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|gif|png|tiff|svg)$/,
-        exclude: /\.glyph.svg/,
+        exclude: /\.icon.svg/,
         use: [
           {
             loader: 'url-loader',

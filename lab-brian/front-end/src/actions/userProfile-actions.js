@@ -23,3 +23,15 @@ export const userprofileCreateRequest = userprofile => (dispatch, getState) => {
       return res;
     });
 };
+
+export const userprofileUpdateRequest = userprofile => (dispatch, getState) => {
+  let { userAuth } = getState();
+  return superagent.put(`${__API_URL__}/profiles/${userprofile._id}`)
+    .set('Authorization', `Bearer ${userAuth}`)
+    .field('bio', userprofile.bio)
+    .attach('avatar', userprofile.avatar)
+    .then( res => {
+      dispatch(userprofileUpdate(res.body));
+      return res;
+    });
+};
