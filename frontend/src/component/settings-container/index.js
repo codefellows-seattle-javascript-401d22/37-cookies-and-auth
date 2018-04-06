@@ -17,16 +17,12 @@ class SettingsContainer extends React.Component {
   handleProfileCreate(profile) {
     return this.props.profileCreate(profile)
       .then( res => {
-        console.log('profile created:', res);
-        this.setState({ profileCreated: true }, () => {
-          console.log('profile created', this.state.profileCreated);
-        });
+        this.setState({ profileCreated: true });
       })
       .catch(console.error);
   }
 
   handleProfileUpdate(profile) {
-    console.log('handleprofileupdate hit');
     return this.props.profileUpdate(profile)
       .then( res => {
         console.log('profile updated:', res);
