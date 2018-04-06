@@ -32,6 +32,7 @@ class App extends React.Component{
               </header>
               {util.renderIf(!this.props.loggedIn,
                 <Route path='/welcome/:auth' component={WelcomeSection} />)}
+              <Route exact path='/dashboard' component={DashboardSection} />
               <Route exact path='/settings' component={SettingsSection} />
             </section>
           </BrowserRouter>
