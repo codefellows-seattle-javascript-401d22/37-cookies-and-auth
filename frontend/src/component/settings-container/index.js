@@ -1,11 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ProfileForm from '../profile-form';
-import {profileCreateRequest} from '../../action/profile-actions.js';
+import {profileCreateRequest, profileUpdateRequest} from '../../action/profile-actions.js';
 
 class SettingsContainer extends React.Component {
   constructor(props) {
     super();
+    this.state = {
+      profileCreated: false,
+    }
 
     this.handleProfileCreate = this.handleProfileCreate.bind(this);
     this.handleProfileUpdate = this.handleProfileUpdate.bind(this);
@@ -13,25 +16,35 @@ class SettingsContainer extends React.Component {
 
   handleProfileCreate(profile) {
     return this.props.profileCreate(profile)
-    .then( res => {
-      console.log('profile created:', res);
-    })
-    .catch(console.error)
+      .then( res => {
+        console.log('profile created:', res);
+        this.setState({ profileCreated: true }, () => {
+          console.log('profile created', this.state.profileCreated);
+        });
+      })
+      .catch(console.error);
   }
 
-  handleProfileUpdate() {
-    // TODO
+  handleProfileUpdate(profile) {
+    console.log('handleprofileupdate hit');
+    return this.props.profileUpdate(profile)
+      .then( res => {
+        console.log('profile updated:', res);
+      })
+      .catch(console.error);
   }
 
   render() {
     let handleComplete = this.props.profile ? this.handleProfileCreate : this.handleProfileUpdate;
     // so if the props.profile does exist then this container does handleProfileCreate???
+    let buttonText = this.state.profileCreated ? 'Update Profile' : 'Create Profile';
+
     return (
       <section className='settings-container'>
         <h2>Profile Settings:</h2>
         <ProfileForm
-          buttonText='Create Profile'
-          onComplete={this.handleProfileCreate} />
+          buttonText={buttonText}
+          onComplete={this.state.profileCreated ? this.handleProfileUpdate : this.handleProfileCreate} />
       </section>
     )
   }
@@ -42,7 +55,8 @@ let mapStateToProps = (state) => ({
 })
 
 let mapDispatchToProps = (dispatch) => ({
-  profileCreate: (profile) => dispatch(profileCreateRequest(profile))
+  profileCreate: (profile) => dispatch(profileCreateRequest(profile)),
+  profileUpdate: (profile) => dispatch(profileUpdateRequest(profile)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer);

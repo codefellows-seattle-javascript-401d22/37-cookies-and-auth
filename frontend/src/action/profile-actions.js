@@ -22,3 +22,19 @@ export const profileCreateRequest = (profile) => (dispatch, getState) => {
       return res;
     });
 }
+
+export const profileUpdateRequest = (profile) => (dispatch, getState) => {
+  let {auth} = getState();
+  let owner = getState().profile.owner;
+  console.log('getstate', getState())
+  console.log(':::profile', profile);
+
+  return superagent.put(`${__API_URL__}/profiles/${owner}`)
+    .set('Authorization', `Bearer ${auth}`)
+    .field('bio', profile.bio)
+    .attach('avatar', profile.avatar)
+    .then( res => {
+      dispatch(profileUpdate({...profile}));
+      return res;
+    })
+}
