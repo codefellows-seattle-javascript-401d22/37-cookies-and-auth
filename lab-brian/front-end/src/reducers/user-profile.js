@@ -1,7 +1,7 @@
 let validateUserProfile = (userprofile) => {
-  if(!userprofile.avatar || !userprofile.bio || !userprofile._id 
+  if((!userprofile.avatar && !userprofile.bio) || !userprofile._id 
     || !userprofile.owner || !userprofile.username || !userprofile.email){
-    throw  new Error('VALIDATION ERROR: userprofile requires a photo and bio');
+    throw  new Error('VALIDATION ERROR: userprofile requires a photo or bio');
   }
 };
 
@@ -19,6 +19,8 @@ export default (state=null, action) => {
     case 'USERPROFILE_FETCH':
       validateUserProfile(payload);
       return payload;
+    case 'USERPROFILE_RESET':
+      return null;
     case 'LOGOUT':
       return null;
     default:

@@ -34,6 +34,21 @@ export const readCookie = name => {
   return null;
 };
 
+export const createCookie = (name,value,days) => {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = '; expires='+date.toGMTString();
+  } else { 
+    expires = '';
+    document.cookie = name+'='+value+expires+'; path=/';
+  }
+};
+
+export const deleteCookie  = (name) => {
+  createCookie(name,'',-1);
+};
+
 export const map = (list, ...args) => Array.prototype.map.apply(list, args);
 export const filter = (list, ...args) => Array.prototype.filter.apply(list, args);
 export const reduce = (list, ...args) => Array.prototype.reduce.apply(list, args);

@@ -10,6 +10,15 @@ export const userprofileUpdate = userprofile => ({
   payload: userprofile,
 });
 
+export const userprofileFetch = userprofile => ({
+  type: 'USERPROFILE_FETCH',
+  payload: userprofile,
+});
+
+export const userprofileReset = () => ({
+  type: 'USERPROFILE_RESET',
+});
+
 // async
 export const userprofileCreateRequest = userprofile => (dispatch, getState) => {
   console.log('works 2');
@@ -32,6 +41,26 @@ export const userprofileUpdateRequest = userprofile => (dispatch, getState) => {
     .attach('avatar', userprofile.avatar)
     .then( res => {
       dispatch(userprofileUpdate(res.body));
+      return res;
+    });
+};
+
+export const userProfileFetchRequest = () => (dispatch, getState) => {
+  let { userAuth } = getState();
+  return superagent.get(`${__API_URL__}/profiles/me`)
+    .set('Authorization', `Bearer ${userAuth}`)
+    .then(res => {
+      dispatch(userprofileFetch(res.body));
+      return res;
+    });
+};
+
+export const userprofileResetRequest = userprofile => (dispatch, getState) => {
+  let { userAuth } = getState();
+  return superagent.delete(`${__API_URL__}/profiles/${userprofile._id}`)
+    .set('Authorization', `Bearer ${userAuth}`)
+    .then( res => {
+      dispatch(userprofileReset(userprofile));
       return res;
     });
 };

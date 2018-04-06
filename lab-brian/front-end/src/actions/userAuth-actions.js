@@ -6,9 +6,10 @@ export const tokenSet = token => ({
   payload: token,
 });
 
-export const tokenDelete = () => ({
-  type: 'TOKEN_DELETE',
-});
+export const logout = () => {
+  util.deleteCookie('X-Sluggram-Token');
+  return { type: 'LOGOUT' };
+};
 
 export const signupRequest = user => dispatch => {
   return superagent.post(`${__API_URL__}/signup`)
