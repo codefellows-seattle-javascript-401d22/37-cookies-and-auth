@@ -4,7 +4,7 @@ import UserAuthForm from '../userAuth-form';
 import * as util from './../../lib/util.js';
 import { signupRequest, signinRequest } from '../../actions/userAuth-actions.js';
 
-class Dashboard extends React.Component {
+class UserAuthContainer extends React.Component {
   render() {
     let { params } = this.props.match;
     let handleComplete = params.auth === 'signin' ? this.props.signin : this.props.signup;
@@ -23,4 +23,4 @@ let mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default connect(null, mapDispatchToProps)(UserAuthContainer);

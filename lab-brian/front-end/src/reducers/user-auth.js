@@ -2,10 +2,10 @@ export default (state=null, action) => {
   let { type, payload } = action;
 
   switch(type) {
-    case 'TOKEN_SET':
+    case 'SIGN_IN':
       console.log('payload: ', payload);
       return payload;
-    case 'TOKEN_DELETE':
+    case 'SIGN_OUT':
       console.log('payload: ', payload);
       return null;
     default:

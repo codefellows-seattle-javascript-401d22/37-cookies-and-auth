@@ -1,14 +1,14 @@
 import superagent from 'superagent';
 import * as util from '../lib/util.js';
 
-export const tokenSet = token => ({
-  type: 'TOKEN_SET',
+export const signIn = token => ({
+  type: 'SIGN_IN',
   payload: token,
 });
 
-export const logout = () => {
+export const signOut = () => {
   util.deleteCookie('X-Sluggram-Token');
-  return { type: 'LOGOUT' };
+  return { type: 'SIGN_OUT' };
 };
 
 export const signupRequest = user => dispatch => {
@@ -16,7 +16,7 @@ export const signupRequest = user => dispatch => {
     .withCredentials()
     .send(user)
     .then( res => {
-      dispatch(tokenSet(res.text));
+      dispatch(signIn(res.text));
       try {
         localStorage.token = res.text;
       } catch (err) {
@@ -31,7 +31,7 @@ export const signinRequest = user => dispatch => {
     .withCredentials()
     .auth(user.username, user.password)
     .then( res => {
-      dispatch(tokenSet(res.text));
+      dispatch(signIn(res.text));
       return;
     });
 };

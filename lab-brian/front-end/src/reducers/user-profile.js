@@ -21,7 +21,7 @@ export default (state=null, action) => {
       return payload;
     case 'USERPROFILE_RESET':
       return null;
-    case 'LOGOUT':
+    case 'SIGN_OUT':
       return null;
     default:
       return state;
