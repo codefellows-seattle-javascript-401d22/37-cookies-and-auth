@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserForm from '../user-form';
+import UserAuthForm from '../userAuth-form';
 import * as util from './../../lib/util.js';
-import { signupRequest, signinRequest } from '../../actions/user-actions.js';
+import { signupRequest, signinRequest } from '../../actions/userAuth-actions.js';
 
 class Dashboard extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class Dashboard extends React.Component {
     let handleComplete = params.auth === 'signin' ? this.props.signin : this.props.signup;
     return (
       <section>
-        <UserForm auth={params.auth} onComplete={handleComplete} />
+        <UserAuthForm auth={params.auth} onComplete={handleComplete} />
       </section>
     );
   }

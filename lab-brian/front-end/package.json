@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
+  "jest": {
+    "globals": {
+      "__API_URL__": "http://localhost:3000"
+    }
+  },
   "scripts": {
     "build": "webpack -p",
-    "watch": "webpack-dev-server --inline --hot"
+    "watch": "webpack-dev-server --inline --hot",
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -39,7 +45,11 @@
     "webpack-dev-server": "^2.11.2"
   },
   "devDependencies": {
+    "babel-jest": "^22.4.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.7.0"
+    "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.3"
   }
 }

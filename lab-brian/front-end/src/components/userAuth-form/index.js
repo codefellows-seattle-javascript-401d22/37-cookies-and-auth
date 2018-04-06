@@ -1,7 +1,7 @@
 import React from 'react';
 import * as util from '../../lib/util';
 
-class UserForm extends React.Component {
+class UserAuthForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,5 +72,5 @@ class UserForm extends React.Component {
   }
 }
 
-export default UserForm;
+export default UserAuthForm;
 
