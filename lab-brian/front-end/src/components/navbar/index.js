@@ -8,6 +8,7 @@ class Navbar extends React.Component {
         <ul>
           <li><Link to='/user/signup'>signup</Link></li>
           <li><Link to='/user/signin'>signin</Link></li>
+          <li><Link to='/settings'>settings</Link></li>
         </ul>
       </nav>
     );

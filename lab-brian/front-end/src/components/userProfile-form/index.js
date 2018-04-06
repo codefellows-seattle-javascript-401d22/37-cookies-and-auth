@@ -8,19 +8,21 @@ class UserProfileForm extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    if(props.userprofile) {
+    if (props.userprofile) {
       this.setState(props.userprofile);
     }
   }
 
-  handleChange(e) {
-    let [type, name] = e.target;
-    if(name === 'bio') {
+  handleChange = (e) => {
+    let {type, name} = e.target;
+
+    if (name === 'bio') {
       this.setState({ bio: e.target.value });
     }
-    if(name === 'avatar') {
-      let { files } = e.target;
-      console.log('FILES: ', files);
+    
+    if (name === 'avatar') {
+      let {files} = e.target;
+      console.log('FILES:', files);
       let avatar = files[0];
       this.setState({avatar});
       util.photoToDataURL(avatar)
@@ -29,8 +31,9 @@ class UserProfileForm extends React.Component {
     }
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
+    console.log('handlesubmit: ', this.state);
     this.props.onComplete(this.state);
   }
 
