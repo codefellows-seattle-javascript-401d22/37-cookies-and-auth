@@ -1,13 +1,15 @@
 import superagent from 'superagent';
+import { deleteCookie } from '../lib/util.js';
 
 export const tokenSet = token => ({
   type: 'TOKEN_SET',
   payload: token,
 });
 
-export const tokenDelete = () => ({
-  type: 'TOKEN_DELETE',
-});
+export const logout = () => {
+  deleteCookie('X-Sluggram-Token');
+  return { type: 'LOGOUT' };
+};
 
 export const signUpRequest = user => dispatch => {
   return superagent.post(`${__API_URL__}/signup`)

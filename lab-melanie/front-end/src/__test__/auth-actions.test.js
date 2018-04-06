@@ -1,3 +1,5 @@
+// TO DO: UPDATE BASED ON JEST GLOBAL
+
 import superagent from 'superagent';
 import { tokenSet, tokenDelete, signUpRequest, loginRequest } from '../actions/auth-actions.js';
 import { mockUser } from './lib/mock-data.js';

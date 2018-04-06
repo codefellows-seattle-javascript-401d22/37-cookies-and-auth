@@ -1,46 +1,51 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import appCreateStore from '../../lib/app-create-store.js';
 import { tokenSet } from '../../actions/auth-actions.js';
-import { readCookie } from '../../lib/util.js';
+// import { readCookie } from '../../lib/util.js';
+import { profileFetch, profileFetchRequest } from '../../actions/profile-actions.js';
 
 import NavBar from '../nav/';
-import Dashboard from '../dashboard/';
+import AuthDashboard from '../auth-dashboard/';
 import ProfileContainer from '../profile-container/';
+import PhotoDashboard from '../photo-dashboard/';
 
-let store = appCreateStore();
-
-export default class App extends Component {
-  componentDidMount() {
-    let token = readCookie('X-Sluggram-Token');
+class App extends Component {
+  // componentDidMount() {
+  //   let token = readCookie('X-Sluggram-Token');
     
-    if (!token) return;
-    if (token) return this.props.tokenSet(token);
-  }
-
+  //   if (!token) return;
+  //   if (token) return this.props.tokenSet(token);
+  // }
+  
   render() {
     return (
       <main className='instaclone'>
-        <Provider store={store}>
-          <BrowserRouter>
-            <section>
-              <NavBar />
+        <BrowserRouter>
+          <section>
+            {/* <NavBar /> */}
 
-              <Route
-                path='/welcome/:auth'
-                component={Dashboard}
-              />
+            <Route path='*' component={NavBar}/>
+            <Route path='/welcome/:auth' component={AuthDashboard}/>
+            <Route exact path='/settings' component={ProfileContainer}/>
+            <Route exact path='/dashboard' component={PhotoDashboard}/>
+            <Route exact path='/' component={PhotoDashboard}/>
 
-              <Route
-                exact path='/settings'
-                component={ProfileContainer}
-              />
-            </section>
-          </BrowserRouter>
-        </Provider>
+          </section>
+        </BrowserRouter>
       </main>
     );
   }
 }
+
+let mapStateToProps = state => ({
+  profile: state.profile,
+});
+
+let mapDispatchToProps = dispatch => ({
+  tokenSet: (token) => dispatch(tokenSet(token)),
+  profileFetch: () => dispatch(profileFetchRequest()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

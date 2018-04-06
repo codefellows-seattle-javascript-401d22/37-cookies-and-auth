@@ -8,6 +8,11 @@
     "watch": "webpack-dev-server --inline --hot",
     "test": "jest -i"
   },
+  "jest": {
+    "globals": {
+      "__API_URL__": "http://localhost:3000"
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { profileCreateRequest } from '../../actions/profile-actions.js';
+
 import ProfileForm from '../profile-form';
+import { signUpRequest, loginRequest } from '../../actions/auth-actions.js';
+import { profileCreateRequest, profileUpdateRequest } from '../../actions/photo-actions.js';
 
 class ProfileContainer extends Component {
   constructor(props) {
@@ -12,12 +14,13 @@ class ProfileContainer extends Component {
 
   handleProfileCreate(profile) {
     return this.props.profileCreate(profile)
-      .then(res => console.log('profile created', res.text))
+      .then(() => this.props.history.push('/dashboard'))
       .catch(console.error);
   }
 
   handleProfileUpdate() {
-    // to complete later
+    return this.props.profileUpdate(profile)
+      .catch(console.error);
   }
 
   render() {
@@ -28,8 +31,9 @@ class ProfileContainer extends Component {
     return (
       <section className='profile-container'>
         <ProfileForm
+          profile={this.props.profile}
           buttonText='create profile'
-          onComplete={this.handleProfileCreate}
+          onComplete={this.handleComplete}
         />
       </section>
     );
@@ -42,6 +46,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   profileCreate: profile => dispatch(profileCreateRequest(profile)),
+  profileUpdate: profile => dispatch(profileUpdateRequest(profile)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);

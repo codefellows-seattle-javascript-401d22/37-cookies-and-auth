@@ -39,3 +39,18 @@ export const readCookie = name => {
   }
   return null;
 };
+
+export const createCookie = (name,value,days) => {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = '; expires='+date.toGMTString();
+  }
+  else var expires = '';
+  document.cookie = name+'='+value+expires+'; path=/';
+};
+
+// from: https://stackoverflow.com/questions/2144386/how-to-delete-a-cookie
+export const eraseCookie = name => {   
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+};

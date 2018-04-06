@@ -57,8 +57,10 @@ module.exports = {
             },
           },
         ],
-      },
-      {
+      }, {
+        test: /\icon.svg$/,
+        loader: 'raw-loader',  // DOUBLE CHECK
+      },{
         test: /\.(jpg|jpeg|gif|png|tiff|svg)$/,
         exclude: /\.glyph.svg/,
         use: [
