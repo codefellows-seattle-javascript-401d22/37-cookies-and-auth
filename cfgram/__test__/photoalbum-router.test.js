@@ -163,7 +163,6 @@ describe('Photo Album Routes', function(){
           })
           .end((err, res) => {
             if(err) return done(err);
-            console.log('albums', res.body);
             expect(res.status).toEqual(200);
             expect(res.body[0].name).toEqual(exampleAlbum.name);
             expect(res.body[0].desc).toEqual(exampleAlbum.desc);
@@ -175,7 +174,7 @@ describe('Photo Album Routes', function(){
 
     describe('with an invald token', () => {
       it('should return a 401 error', done => {
-        request.get(`${url}/api/photoalbum/${this.tempAlbum._id}`)
+        request.get(`${url}/api/photoalbum/user/${this.tempUser._id}`)
           .end((err, res) => {
             expect(err.status).toEqual(401);
             expect(res.status).toEqual(401);
@@ -186,7 +185,7 @@ describe('Photo Album Routes', function(){
 
     describe('with an invalid id', () => {
       it('should return a 404 error', done => {
-        request.get(`${url}/api/photoalbum/123`)
+        request.get(`${url}/api/photoalbum//user/123`)
           .set({
             Authorization: `Bearer ${this.tempToken}`,
           })
