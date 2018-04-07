@@ -19,7 +19,7 @@ export const userprofileReset = () => ({
   type: 'USERPROFILE_RESET',
 });
 
-// async
+// ASYNC
 export const userprofileCreateRequest = userprofile => (dispatch, getState) => {
   console.log('works 2');
   let { userAuth } = getState();
