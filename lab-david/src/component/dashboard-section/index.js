@@ -20,4 +20,4 @@ class DashboardSection extends React.Component{
   }
 }
 
-// this is gonna be a lot more work than I thought it was, sluggram doesn't support what I want to create...
+export default DashboardSection;

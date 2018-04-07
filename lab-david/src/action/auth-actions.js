@@ -9,7 +9,7 @@ export const tokenSet = token => ({
 })
 
 export const logout = () => {
-  util.deleteCookie('X-Sluggram-Token');
+  util.deleteCookie('X-Kosmogram-Token');
   return {type: 'LOGOUT'};
 }
 
@@ -29,7 +29,7 @@ export const signupRequest = user => dispatch => {
 
 export const loginRequest = user => dispatch => {
   return superagent.get(`${__API_URL__}/login`)
-    .withCredentials(true)
+    // .withCredentials(true)
     .auth(user.username, user.password)
     .then(res => {
       dispatch(tokenSet(res.text))

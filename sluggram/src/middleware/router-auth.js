@@ -32,6 +32,7 @@ export default new Router()
   .then((token) => {
     let cookieOptions = {maxAge: daysToMilliseconds(7)}
     res.cookie('X-Sluggram-Token', token, cookieOptions)
+    console.log('res.cookie', res.cookie('X-Sluggram-Token', token, cookieOptions));
     res.send(token)
   })
   .catch(next)
