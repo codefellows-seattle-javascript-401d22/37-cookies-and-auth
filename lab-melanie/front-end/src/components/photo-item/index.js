@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { photoDeleteRequest, photoUpdateRequest } from '../../actions/photo-actions.js';
 import PhotoForm from '../photo-form';
 
-
 class PhotoItem extends Component {
   constructor(props) {
     super(props);
@@ -27,6 +26,7 @@ class PhotoItem extends Component {
 
   render() {
     let { photo } = this.props;
+    console.log('photo-item',this.props);
 
     return (
       <div>
@@ -36,14 +36,14 @@ class PhotoItem extends Component {
             buttonText='update photo'
             onComplete={this.handleUpdate}
           />
-          : 
-          <section className='display-photo'>
-            <img src={photo.url} />
-            <p>{photo.description}</p>
-            <button onClick={this.handleDelete}>delete</button>
-            <button onClick={() => this.setState({ editMode: true })}>update</button>
-          </section>
-        }
+          : undefined }
+
+        <section className='display-photo'>
+          <img src={photo.url} />
+          <p>{photo.description}</p>
+          <button onClick={this.handleDelete}>delete</button>
+          <button onClick={() => this.setState({ editMode: true })}>update</button>
+        </section>
       </div>
     );
   }

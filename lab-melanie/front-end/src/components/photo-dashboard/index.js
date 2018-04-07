@@ -8,21 +8,13 @@ import PhotoForm from '../photo-form';
 import PhotoItem from '../photo-item';
 
 class PhotoDashboard extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  // }
-
   componentDidMount() {
     this.props.photoFetch()
       .catch(logError);
   }
 
-  // handleSubmit(e) {
-  //   this.props.onComplete
-  // }
-
   render() {
+    console.log('photo-dashboard',this.props.photos);
     return (
       <section className='dashboard-container'>
         <PhotoForm
@@ -33,13 +25,13 @@ class PhotoDashboard extends Component {
           }}
         />
 
-        {this.props.photos ? 
-          this.props.photos.map( photo => {
+        {this.props.photos.length > 0 ? 
+          this.props.photos.map(photo => 
             <PhotoItem 
               key={photo._id}
               photo={photo}
-            />;
-          }) : undefined }
+            />
+          ) : undefined }
       </section>
     );
   }

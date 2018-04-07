@@ -2,18 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { readCookie, classToggler } from '../../lib/util.js';
+import { readCookie } from '../../lib/util.js';
 import { tokenSet, logout } from '../../actions/auth-actions.js';
 import { profileFetchRequest } from '../../actions/profile-actions.js';
-
-// BREAK INTO NEW COMPONENT
-let NavLink = props => (
-  <li className={classToggler({ selected: props.url === `/${props.route}` })}>
-    <Link to={`/${props.route}`}>
-      {props.route}
-    </Link>
-  </li>
-);
 
 class NavBar extends Component {
   constructor(props) {
@@ -28,12 +19,13 @@ class NavBar extends Component {
 
   validateRoute(props) {
     let { match, history } = props;
+
     let token = readCookie('X-Sluggram-Token');
-
     if (!token) return history.replace('/welcome/signup');
-
     this.props.tokenSet(token);
+
     this.props.profileFetch()
+      .then(profile => console.log('__PROFILE FETCHED__:', profile))
       .catch(() => {
         console.log('__PROFILE FETCH ERROR__: user does not have profile');
         if (!match.url.startsWith('/settings')) return history.replace('/settings');
@@ -54,18 +46,19 @@ class NavBar extends Component {
         <nav>
           {this.props.loggedIn ? 
             <ul>
-              <NavLink route='settings' url={url} />
-              <NavLink route='dashboard' url={url} />
+              <li><Link to='/settings'>settings</Link></li>
+              <li><Link to='/dashboard'>dashboard</Link></li>
             </ul>
-            : undefined }
+            :
+            <ul>
+              <li><Link to='/welcome/signup'>sign up</Link></li>
+              <li><Link to='/welcome/signin'>sign in</Link></li>
+            </ul>
+          }
             
           {this.props.loggedIn ? 
             <button onClick={this.handleLogout}>log out</button>
             : undefined }
-
-          {/* <li><Link to='/welcome/signup'>sign up</Link></li>
-            <li><Link to='/welcome/login'>sign in</Link></li>
-            <li><Link to='/settings'>profile settings</Link></li> */}
         </nav>
       </header>
     );
