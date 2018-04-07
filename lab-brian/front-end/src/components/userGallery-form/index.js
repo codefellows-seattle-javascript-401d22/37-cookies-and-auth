@@ -27,7 +27,7 @@ class UserGalleryForm extends React.Component {
     e.preventDefault();
     return this.props.onComplete(this.state)
       .then( () => {
-        if(!this.props.profile){
+        if(!this.props.userprofile){
           this.setState({ description: '', preview: '', photo: null });
         }
       });
@@ -35,7 +35,7 @@ class UserGalleryForm extends React.Component {
 
   render(){
     return (
-      <form classname='userGalleryItem-form' onSubmit={this.handleSubmit}>
+      <form className='userGalleryItem-form' onSubmit={this.handleSubmit}>
         {util.renderIf(this.state.preview,
           <img className='galleryItem-preview' src={this.state.preview || this.state.url || '' } />
         )}

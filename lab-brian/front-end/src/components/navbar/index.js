@@ -64,7 +64,7 @@ class Navbar extends React.Component {
           </div>
         )}
 
-        {util.renderIf(this.props.userProfile,
+        {util.renderIf(this.props.userprofile,
           <Avatar userprofile={this.props.userprofile} />
         )}
 
@@ -78,13 +78,13 @@ class Navbar extends React.Component {
 
 let mapStateToProps = state => ({
   loggedIn: !!state.userAuth,
-  userprofile: state.userProfile,
+  userprofile: state.userprofile,
 });
 
 let mapDispatchToProps = dispatch => ({
   signOut: () => dispatch(signOut()),
   signIn: token => dispatch(signIn(token)),
-  userProfileFetch: () => dispatch(userprofileFetchRequest()),
+  userprofileFetch: () => dispatch(userprofileFetchRequest()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

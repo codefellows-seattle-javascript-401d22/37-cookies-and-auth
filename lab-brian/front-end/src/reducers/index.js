@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import userAuth from './user-auth';
-import userProfile from './user-profile';
-import userGallery from './user-gallery';
+import userprofile from './user-profile';
+import userGalleryItems from './user-gallery';
 
 export default combineReducers({
   userAuth,
-  userProfile,
-  userGallery,
+  userprofile,
+  userGalleryItems,
 });

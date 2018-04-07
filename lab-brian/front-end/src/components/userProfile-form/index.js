@@ -13,34 +13,34 @@ class UserProfileForm extends React.Component {
     }
   }
 
-  handleChange = (e) => {
-    let {type, name} = e.target;
+  handleChange = e => {
+    let { type, name } = e.target;
 
     if (name === 'bio') {
       this.setState({ bio: e.target.value });
     }
     
     if (name === 'avatar') {
-      let {files} = e.target;
+      let { files } = e.target;
       console.log('FILES:', files);
       let avatar = files[0];
-      this.setState({avatar});
+      this.setState({ avatar });
       util.photoToDataURL(avatar)
-        .then(preview => this.setState({preview}))
+        .then(preview => this.setState({ preview }))
         .catch(console.error);
     }
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     console.log('handlesubmit: ', this.state);
-    this.props.onComplete(this.state);
+    return this.props.onComplete(this.state);
   }
 
   render() {
     return (
       <form className='userprofile-form' onSubmit={this.handleSubmit}>
-        <img src={this.state.preview} />
+        <img src={ this.state.preview || this.state.avatar } />
 
         <input 
           type='file'
@@ -51,6 +51,7 @@ class UserProfileForm extends React.Component {
         <textarea 
           type='text'
           name='bio'
+          placeholder='tell us about yourself...'
           value={this.state.bio}
           onChange={this.handleChange}>
         </textarea>
