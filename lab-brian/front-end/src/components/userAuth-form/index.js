@@ -43,7 +43,7 @@ class UserAuthForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className='user-form'>
-        {util.renderIf(this.props.auth === 'signup',
+        {util.renderIf(this.props.userAuth === 'signup',
           <input
             type='email'
             name='email'
@@ -66,7 +66,7 @@ class UserAuthForm extends React.Component {
           value={this.state.password}
           onChange={this.handleChange}
         />
-        <button type='submit'> {this.props.auth} </button>
+        <button type='submit'> {this.props.userAuth} </button>
       </form>
     );
   }

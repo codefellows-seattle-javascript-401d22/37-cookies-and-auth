@@ -70,7 +70,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 10000,
-              name: 'font/[name].[ext]',
+              name: 'font/[name].[hash].[ext]',
             },
           },
         ],

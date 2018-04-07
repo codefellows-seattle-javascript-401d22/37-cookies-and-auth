@@ -50,7 +50,7 @@ class Navbar extends React.Component {
 
     return (
       <nav className='navbar'>
-        <div class='nav-left'>
+        <div className='nav-left'>
           <Link to='/'><Icon className='logo' name='flame' /> <h1>Hot Pix</h1></Link>
         </div>
 

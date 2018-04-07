@@ -7,10 +7,10 @@ import { signupRequest, signinRequest } from '../../actions/userAuth-actions.js'
 class UserAuthContainer extends React.Component {
   render() {
     let { params } = this.props.match;
-    let handleComplete = params.auth === 'signin' ? this.props.signin : this.props.signup;
+    let handleComplete = params.userAuth === 'signin' ? this.props.signin : this.props.signup;
     return (
       <section>
-        <UserAuthForm auth={params.auth} onComplete={handleComplete} />
+        <UserAuthForm userAuth={params.userAuth} onComplete={handleComplete} />
       </section>
     );
   }
