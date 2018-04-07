@@ -154,6 +154,51 @@ describe('Photo Album Routes', function(){
     });
   });
 
+  describe('GET: /api/photoalbum/user/:userId', () => {
+    describe('with a valid id', () => {
+      it.only('should return all the user\'s photo albums', done => {
+        request.get(`${url}/api/photoalbum/user/${this.tempUser._id}`)
+          .set({
+            Authorization: `Bearer ${this.tempToken}`,
+          })
+          .end((err, res) => {
+            if(err) return done(err);
+            console.log('albums', res.body);
+            expect(res.status).toEqual(200);
+            expect(res.body[0].name).toEqual(exampleAlbum.name);
+            expect(res.body[0].desc).toEqual(exampleAlbum.desc);
+            expect(res.body[0].userId).toEqual(this.tempUser._id.toString());
+            done();
+          });
+      });
+    });
+
+    describe('with an invald token', () => {
+      it('should return a 401 error', done => {
+        request.get(`${url}/api/photoalbum/${this.tempAlbum._id}`)
+          .end((err, res) => {
+            expect(err.status).toEqual(401);
+            expect(res.status).toEqual(401);
+            done();
+          });
+      });
+    });
+
+    describe('with an invalid id', () => {
+      it('should return a 404 error', done => {
+        request.get(`${url}/api/photoalbum/123`)
+          .set({
+            Authorization: `Bearer ${this.tempToken}`,
+          })
+          .end((err, res) => {
+            expect(err.status).toEqual(404);
+            expect(res.status).toEqual(404);
+            done();
+          });
+      });
+    });
+  });
+
   describe('PUT: /api/photoalbum/:photoalbumId', () => {
     describe('with a valid body', () => {
       it('should return an updated photo album', done => {

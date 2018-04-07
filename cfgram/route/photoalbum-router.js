@@ -34,6 +34,17 @@ photoAlbumRouter.get('/api/photoalbum/:photoalbumId', bearerAuth, jsonParser, (r
     });
 });
 
+photoAlbumRouter.get('/api/photoalbum/user/:userId', bearerAuth, (req, res, next) => {
+  debug('GET: /api/photoalbum/user/:userId');
+
+  PhotoAlbum.find({userId: req.params.userId})
+    .then(albums => res.json(albums))
+    .catch(err => {
+      err = createError(404, err.message);
+      return next(err);
+    });
+});
+
 photoAlbumRouter.put('/api/photoalbum/:photoalbumId', bearerAuth, jsonParser, (req, res, next) => {
   debug('PUT: /api/photoalbum/:photoalbumId');
   

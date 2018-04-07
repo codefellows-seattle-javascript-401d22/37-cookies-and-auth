@@ -19,6 +19,12 @@ class AuthForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillReceiveProps(props){
+    if(props.auth){
+      this.setState(props.auth);
+    }
+  }
+
   handleChange(e){
     let {name, value} = e.target;
     this.setState({

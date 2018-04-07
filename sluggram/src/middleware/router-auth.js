@@ -10,7 +10,7 @@ export default new Router()
 .post('/signup', parserBody, (req, res, next) => {
   log('__ROUTE__ POST /signup')
   new User.create(req.body)
-  .then(user => {console.log('user', user); return user.tokenCreate();})
+  .then(user => user.tokenCreate())
   .then(token => {
     res.cookie('X-Sluggram-Token', token, {maxAge: 900000})
     res.send(token)
@@ -32,7 +32,6 @@ export default new Router()
   .then((token) => {
     let cookieOptions = {maxAge: daysToMilliseconds(7)}
     res.cookie('X-Sluggram-Token', token, cookieOptions)
-    console.log('res.cookie', res.cookie('X-Sluggram-Token', token, cookieOptions));
     res.send(token)
   })
   .catch(next)

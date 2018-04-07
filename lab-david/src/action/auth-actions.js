@@ -14,7 +14,7 @@ export const logout = () => {
 }
 
 export const signupRequest = user => dispatch => {
-  return superagent.post(`${__API_URL__}/signup`)
+  return superagent.post(`${__API_URL__}/api/signup`)
     .send(user)
     .then(res => {
       dispatch(tokenSet(res.text));
@@ -28,7 +28,7 @@ export const signupRequest = user => dispatch => {
 }
 
 export const loginRequest = user => dispatch => {
-  return superagent.get(`${__API_URL__}/login`)
+  return superagent.get(`${__API_URL__}/api/signin`)
     // .withCredentials(true)
     .auth(user.username, user.password)
     .then(res => {
