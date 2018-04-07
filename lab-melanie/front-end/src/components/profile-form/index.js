@@ -12,7 +12,7 @@ export default class ProfileForm extends Component {
   }
 
   componentWillReceiveProps() {
-    if (props.profile) this.setState(props.profile);
+    if (this.props.profile) this.setState(props.profile);
   }
 
   handleChange(e) {

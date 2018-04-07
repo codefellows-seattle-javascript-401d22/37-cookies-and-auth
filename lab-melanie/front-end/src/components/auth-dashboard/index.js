@@ -3,8 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import AuthForm from '../auth-form/';
-import { signUpRequest, loginRequest } from '../../actions/auth-actions.js';
 import { logError } from '../../lib/util';
+import { signUpRequest, loginRequest } from '../../actions/auth-actions.js';
 import { profileFetchRequest } from '../../actions/profile-actions';
 
 class AuthDashboard extends Component {
@@ -29,7 +29,9 @@ class AuthDashboard extends Component {
   }
 
   handleSignup(user) {
-
+    return this.props.signup(user)
+      .then(() => this.props.history.push('/settings'))
+      .catch(logError);
   }
 
   render() {

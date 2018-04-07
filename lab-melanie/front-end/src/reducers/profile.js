@@ -1,11 +1,18 @@
+let validateProfile = profile => {
+  if (!profile.avatar || !profile.bio || !profile.id || !profile.owner || !profile.username || !profile.email) {
+    throw new Error('__VALIDATION ERROR__: profile missing information');
+  }
+};
+
 export default (state=null, action) => {
   let { type, payload } = action;
-  // TO DO: Add validation
 
   switch(type) {
   case 'PROFILE_CREATE':
+    validateProfile(payload);
     return payload;
   case 'PROFILE_UPDATE':
+    validateProfile(payload);
     return {...state, ...payload};
   case 'LOGOUT':
     return null;

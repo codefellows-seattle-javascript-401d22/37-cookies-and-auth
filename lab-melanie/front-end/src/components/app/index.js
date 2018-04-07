@@ -11,27 +11,17 @@ import AuthDashboard from '../auth-dashboard/';
 import ProfileContainer from '../profile-container/';
 import PhotoDashboard from '../photo-dashboard/';
 
-class App extends Component {
-  // componentDidMount() {
-  //   let token = readCookie('X-Sluggram-Token');
-    
-  //   if (!token) return;
-  //   if (token) return this.props.tokenSet(token);
-  // }
-  
+class App extends Component {  
   render() {
     return (
       <main className='instaclone'>
         <BrowserRouter>
           <section>
-            {/* <NavBar /> */}
-
-            <Route path='*' component={NavBar}/>
-            <Route path='/welcome/:auth' component={AuthDashboard}/>
-            <Route exact path='/settings' component={ProfileContainer}/>
-            <Route exact path='/dashboard' component={PhotoDashboard}/>
-            <Route exact path='/' component={PhotoDashboard}/>
-
+            <Route path='*' component={NavBar} />
+            <Route exact path='/welcome/:auth' component={AuthDashboard} />
+            <Route exact path='/settings' component={ProfileContainer} />
+            <Route exact path='/dashboard' component={PhotoDashboard} />
+            <Route exact path='/' component={PhotoDashboard} />
           </section>
         </BrowserRouter>
       </main>
@@ -44,7 +34,7 @@ let mapStateToProps = state => ({
 });
 
 let mapDispatchToProps = dispatch => ({
-  tokenSet: (token) => dispatch(tokenSet(token)),
+  tokenSet: token => dispatch(tokenSet(token)),
   profileFetch: () => dispatch(profileFetchRequest()),
 });
 

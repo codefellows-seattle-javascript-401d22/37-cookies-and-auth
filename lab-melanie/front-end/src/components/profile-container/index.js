@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import ProfileForm from '../profile-form';
 import { signUpRequest, loginRequest } from '../../actions/auth-actions.js';
-import { profileCreateRequest, profileUpdateRequest } from '../../actions/photo-actions.js';
+import { profileCreateRequest, profileUpdateRequest } from '../../actions/profile-actions.js';
 
 class ProfileContainer extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class ProfileContainer extends Component {
       .catch(console.error);
   }
 
-  handleProfileUpdate() {
+  handleProfileUpdate(profile) {
     return this.props.profileUpdate(profile)
       .catch(console.error);
   }
@@ -33,7 +33,7 @@ class ProfileContainer extends Component {
         <ProfileForm
           profile={this.props.profile}
           buttonText='create profile'
-          onComplete={this.handleComplete}
+          onComplete={handleComplete}
         />
       </section>
     );

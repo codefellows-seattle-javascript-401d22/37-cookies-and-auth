@@ -1,19 +1,57 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import { photoDeleteRequest, photoUpdateRequest } from '../../actions/photo-actions.js';
 import PhotoForm from '../photo-form';
+
 
 class PhotoItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { editMode: false }; // toggle edit mode
-    // TO DO: ADD UPDATE & DELETE
+    this.state = { editMode: false };
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+  }
+
+  handleDelete() {
+    return this.props.deletePhoto(this.props.photo)
+      .then(console.log)
+      .catch(console.error);
+  }
+
+  handleUpdate() {
+    return this.props.updatePhoto(photo)
+      .then(() => this.setState({ editMode: false }))
+      .catch(console.error);
   }
 
   render() {
+    let { photo } = this.props;
+
     return (
-      <PhotoForm />
+      <div>
+        {this.state.editMode ? 
+          <PhotoForm 
+            photo={photo}
+            buttonText='update photo'
+            onComplete={this.handleUpdate}
+          />
+          : 
+          <section className='display-photo'>
+            <img src={photo.url} />
+            <p>{photo.description}</p>
+            <button onClick={this.handleDelete}>delete</button>
+            <button onClick={() => this.setState({ editMode: true })}>update</button>
+          </section>
+        }
+      </div>
     );
   }
 };
 
-// TO DO: map state, map dispatch, etc
+const mapDispatchToProps = dispatch => ({
+  deletePhoto: photo => dispatch(photoDeleteRequest(photo)),
+  updatePhoto: photo => dispatch(photoUpdateRequest(photo)),
+});
+
+export default connect(null, mapDispatchToProps)(PhotoItem);
