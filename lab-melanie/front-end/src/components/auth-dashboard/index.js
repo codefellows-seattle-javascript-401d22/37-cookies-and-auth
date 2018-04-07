@@ -20,6 +20,7 @@ class AuthDashboard extends Component {
   }
 
   handleLogin(user) {
+    console.log('Auth dashboard handleLogin:', this.props);
     let { profileFetch, history } = this.props;
 
     return this.props.login(user)
@@ -29,6 +30,7 @@ class AuthDashboard extends Component {
   }
 
   handleSignup(user) {
+    console.log('Auth dashboard handleSignup:', this.props);
     return this.props.signup(user)
       .then(() => this.props.history.push('/settings'))
       .catch(logError);

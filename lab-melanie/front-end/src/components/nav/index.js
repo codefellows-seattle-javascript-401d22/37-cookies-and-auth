@@ -73,7 +73,7 @@ class NavBar extends Component {
 }
 
 let mapStateToProps = state => ({
-  loggedIn: !!state.auth,
+  loggedIn: state.auth,
   profile: state.profile,
 });
 

@@ -24,7 +24,7 @@ class ProfileContainer extends Component {
   }
 
   render() {
-    let handleComplete = this.props.profile
+    let handleComplete = this.props.profile === null
       ? this.handleProfileCreate
       : this.handleProfileUpdate;
 
