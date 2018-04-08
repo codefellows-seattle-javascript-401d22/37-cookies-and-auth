@@ -19,7 +19,7 @@ class UserGalleryItem extends React.Component {
 
   handleUpdate = userGalleryItem => {
     return this.props.userGalleryItemUpdate(userGalleryItem)
-      .then( () => {
+      .then(() => {
         this.setState({ editing: false });
       })
       .catch(console.error);
@@ -29,24 +29,24 @@ class UserGalleryItem extends React.Component {
     let { userGalleryItem } = this.props;
     return (
       <div>
-      {util.renderIf(!this.state.editing,
-        <div>
-          <img src={userGalleryItem.url} />
-          <p> {userGalleryItem.description}</p>
-          <i onClick={this.handleDelete} className='fa fa-trash-o fa-3x' />
-          <i onClick={() => this.setState({ editing: true })} className='fa fa-pencil fa-3x' />
-        </div>
-      )}
+        {util.renderIf(!this.state.editing,
+          <div>
+            <img src={userGalleryItem.url} />
+            <p> {userGalleryItem.description}</p>
+            <i onClick={this.handleDelete} className='fa fa-trash-o fa-3x' />
+            <i onClick={() => this.setState({ editing: true })} className='fa fa-pencil fa-3x' />
+          </div>
+        )}
 
-      {util.renderIf(this.state.editing,
-        <div>
-          <UserGalleryForm 
-            userGalleryItem={this.props.userGalleryItem}
-            buttonText='update photo'
-            onComplete={this.handleUpdate}
-          />
-        </div>
-      )}
+        {util.renderIf(this.state.editing,
+          <div>
+            <UserGalleryForm 
+              userGalleryItem={this.props.userGalleryItem}
+              buttonText='update photo'
+              onComplete={this.handleUpdate}
+            />
+          </div>
+        )}
       </div>
     );
   }

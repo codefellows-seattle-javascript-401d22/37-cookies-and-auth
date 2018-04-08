@@ -15,9 +15,7 @@ export const photoToDataURL = file => {
       reject(reader.error);
     });
 
-    if (file) {
-      return reader.readAsDataURL(file);
-    }
+    if (file) return reader.readAsDataURL(file);
     return reject(new Error('File Require'));
   });
 };
