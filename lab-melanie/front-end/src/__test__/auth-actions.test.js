@@ -1,7 +1,7 @@
 // TO DO: UPDATE BASED ON JEST GLOBAL
 
 import superagent from 'superagent';
-import { tokenSet, tokenDelete, signUpRequest, loginRequest } from '../actions/auth-actions.js';
+import { tokenSet, tokenDelete, signUpRequest, signinRequest } from '../actions/auth-actions.js';
 import { mockUser } from './lib/mock-data.js';
 
 describe('Auth Actions', () => {
@@ -34,7 +34,7 @@ describe('Auth Actions', () => {
       });
   });
 
-  test('loginRequest should return a token', done => {
+  test('signinRequest should return a token', done => {
     superagent.get('http://localhost:3000/login')
       .auth(tempUser.username, tempUser.password)
       .end((err, res) => {
@@ -43,7 +43,7 @@ describe('Auth Actions', () => {
         expect(typeof res.text).toEqual('string');
         expect(err).toEqual(null);
         tempUser = mockUser;
-        console.log('__JEST_LOGIN__:', tempUser);
+        console.log('__JEST_signin__:', tempUser);
         done();
       });
   });

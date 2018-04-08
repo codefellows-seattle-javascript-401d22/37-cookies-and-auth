@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ProfileForm from '../profile-form';
-import { signUpRequest, loginRequest } from '../../actions/auth-actions.js';
+import { signUpRequest, signinRequest } from '../../actions/auth-actions.js';
 import { profileCreateRequest, profileUpdateRequest } from '../../actions/profile-actions.js';
 
 class ProfileContainer extends Component {

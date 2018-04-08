@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { tokenSet } from '../../actions/auth-actions.js';
+// import { tokenSet } from '../../actions/auth-actions.js';
 import { profileFetch, profileFetchRequest } from '../../actions/profile-actions.js';
 
 import NavBar from '../nav/';
@@ -10,7 +10,13 @@ import AuthDashboard from '../auth-dashboard/';
 import ProfileContainer from '../profile-container/';
 import PhotoDashboard from '../photo-dashboard/';
 
-class App extends Component {  
+class App extends Component {
+  componentDidMount() {
+    if (this.props.loggedIn) {
+      this.props.profileFetchRequest()
+        .catch(console.error);
+    }
+  }
   render() {
     return (
       <main className='instaclone'>
@@ -33,7 +39,6 @@ let mapStateToProps = state => ({
 });
 
 let mapDispatchToProps = dispatch => ({
-  tokenSet: token => dispatch(tokenSet(token)),
   profileFetch: () => dispatch(profileFetchRequest()),
 });
 

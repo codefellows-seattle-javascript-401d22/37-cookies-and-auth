@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import ProfileAvatar from '../profile-avatar';
 import { readCookie } from '../../lib/util.js';
 import { tokenSet, logout } from '../../actions/auth-actions.js';
 import { profileFetchRequest } from '../../actions/profile-actions.js';
@@ -14,27 +15,28 @@ class NavBar extends Component {
   }
 
   componentDidMount() {
-    this.validateRoute(this.props);
+    return this.validateRoute(this.props);
   }
 
   validateRoute(props) {
+    console.log(this.props);
     let { match, history } = props;
 
     let token = readCookie('X-Sluggram-Token');
     if (!token) return history.replace('/welcome/signup');
-    this.props.tokenSet(token);
 
-    this.props.profileFetch()
-      .then(profile => console.log('__PROFILE FETCHED__:', profile))
-      .catch(() => {
-        console.log('__PROFILE FETCH ERROR__: user does not have profile');
-        if (!match.url.startsWith('/settings')) return history.replace('/settings');
-      });
+    this.props.tokenSet(token);
+    // this.props.profileFetch()
+    //   .then(profile => console.log('__PROFILE FETCHED__:', profile))
+    //   .catch(() => {
+    //     console.log('__PROFILE FETCH ERROR__: user does not have profile');
+    //     if (!match.url.startsWith('/settings')) return history.replace('/settings');
+    //   });
   }
 
   handleLogout() {
     this.props.logout();
-    this.props.history.push('/welcome/login');
+    this.props.history.push('/welcome/signin');
   }
 
   render() {
@@ -46,8 +48,13 @@ class NavBar extends Component {
         <nav>
           {this.props.loggedIn ? 
             <ul>
+              {this.props.profile ?
+                <li><ProfileAvatar profile={this.props.profile} /></li>
+                : undefined
+              }
               <li><Link to='/settings'>settings</Link></li>
               <li><Link to='/dashboard'>dashboard</Link></li>
+              <button onClick={this.handleLogout}>log out</button>
             </ul>
             :
             <ul>
@@ -55,10 +62,6 @@ class NavBar extends Component {
               <li><Link to='/welcome/signin'>sign in</Link></li>
             </ul>
           }
-            
-          {this.props.loggedIn ? 
-            <button onClick={this.handleLogout}>log out</button>
-            : undefined }
         </nav>
       </header>
     );

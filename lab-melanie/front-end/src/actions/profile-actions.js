@@ -12,15 +12,14 @@ export const profileUpdate = profile => ({
 
 export const profileCreateRequest = profile => (dispatch, getState) => {
   let { auth } = getState();
-  console.log(profile);
+  // console.log(profile);
   
   return superagent.post(`${__API_URL__}/profiles`)
     .set('Authorization', `Bearer ${auth}`)
     .field('bio', profile.bio)
     .attach('avatar', profile.avatar)
     .then(res => {
-      dispatch(profileCreate(res.body));
-      return res;
+      return dispatch(profileCreate(res.body));
     });
 };
 
@@ -32,18 +31,16 @@ export const profileUpdateRequest = profile => (dispatch, getState) => {
     .field('bio', profile.bio)
     .attach('avatar', profile.avatar)
     .then(res => {
-      dispatch(profileCreate(res.body));
-      return res;
+      return dispatch(profileCreate(res.body));
     });
 };
 
-export const profileFetchRequest = profile => (dispatch, getState) => {
+export const profileFetchRequest = () => (dispatch, getState) => {
   let { auth } = getState();
 
-  return superagent.put(`${__API_URL__}/profiles/me`)
+  return superagent.get(`${__API_URL__}/profiles/me`)
     .set('Authorization', `Bearer ${auth}`)
     .then(res => {
-      dispatch(profileCreate(res.body));
-      return res;
+      return dispatch(profileCreate(res.body));
     });
 };
