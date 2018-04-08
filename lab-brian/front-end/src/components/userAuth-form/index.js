@@ -26,6 +26,10 @@ class UserAuthForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillUnmount() {
+    this.setState({ username: '', email: '', password: '' });
+  }
+
   validateInput = e => {
     let { name, value } = e.target;
 
@@ -102,14 +106,11 @@ class UserAuthForm extends React.Component {
     e.preventDefault();
     if(!this.state.error) {
       this.props.onComplete(this.state)
-      .then( () => {
-        this.setState({ username: '', email: '', password: '' });
-      })
-      .catch(err => {
-        console.error(err);
-        this.setState({ 
-          error,
-          submitted: true,
+        .catch(err => {
+          console.error(err);
+          this.setState({ 
+            error,
+            submitted: true,
         });
       });
     }
@@ -124,7 +125,7 @@ class UserAuthForm extends React.Component {
   render() {
     let { focused, submitted, username, emailError, passwordError, usernameError, usernameAvailable } = this.state;
     return (
-      <form onSubmit={this.handleSubmit} className={ustil.classToggler({
+      <form onSubmit={this.handleSubmit} className={util.classToggler({
         'userauth-form': true,
         'error': this.state.error && this.state.submitted,
       })}>
@@ -146,8 +147,8 @@ class UserAuthForm extends React.Component {
           </div>
         )}
 
-        {util.renderIf(this.props.auth === 'login',
-            <h2>login</h2>
+        {util.renderIf(this.props.userAuth === 'signin',
+            <h2>signin</h2>
         )}
 
         <Tooltip message={usernameError} show={focused === 'username' || submitted}/>
