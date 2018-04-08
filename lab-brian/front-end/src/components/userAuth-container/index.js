@@ -35,7 +35,7 @@ class UserAuthContainer extends React.Component {
     let { params } = this.props.match;
     let handleComplete = params.userAuth === 'signin' ? this.handleSignin : this.handleSignup;
     return (
-      <section>
+      <section className='auth-container'>
         <UserAuthForm userAuth={params.userAuth} onComplete={handleComplete} />
 
         <div className='userauth-buttons'>

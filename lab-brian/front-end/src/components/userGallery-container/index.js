@@ -19,7 +19,7 @@ class UserGalleryContainer extends React.Component {
   render(){
     return (
       <div className='userGallery-container'>
-        <h2> Gallery </h2>
+        <h2 className='title'>gallery.</h2>
         <UserGalleryForm 
           buttonText='post'
           onComplete={userGalleryItem => {

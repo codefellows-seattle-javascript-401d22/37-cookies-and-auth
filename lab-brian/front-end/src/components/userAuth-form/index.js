@@ -132,7 +132,7 @@ class UserAuthForm extends React.Component {
 
         {util.renderIf(this.props.userAuth === 'signup',
           <div>
-            <h2>signup</h2>
+            <h2 className='title'>signup.</h2>
             <Tooltip message={emailError} show={focused === 'email' || submitted} />
             <input
               className={util.classToggler({error: emailError})}
@@ -148,7 +148,7 @@ class UserAuthForm extends React.Component {
         )}
 
         {util.renderIf(this.props.userAuth === 'signin',
-            <h2>signin</h2>
+            <h2 className='title'>signin.</h2>
         )}
 
         <Tooltip message={usernameError} show={focused === 'username' || submitted}/>

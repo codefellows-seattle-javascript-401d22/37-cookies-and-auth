@@ -1,0 +1,15 @@
+.title {
+  font-size: $font-md;
+  color: $color-primary-dark;
+  margin-bottom: 3.5vw;
+  font-weight: 300;
+}
+input[type="text"], input[type="password"] {
+  width: calc(100% - 4vw);
+  height: 7vw;
+  border-radius: .5vw;
+  margin-bottom: 5vw;
+  font-size: 2.2vw;
+  padding: 0 2vw;
+  border: .25vw solid $color-primary-dark;
+}
