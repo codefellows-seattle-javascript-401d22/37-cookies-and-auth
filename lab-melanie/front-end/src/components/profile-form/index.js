@@ -37,7 +37,7 @@ export default class ProfileForm extends Component {
   render() {
     return (
       <form className='profile-form' onSubmit={this.handleSubmit}>
-        <h2>create a profile</h2>
+        <h2>{this.props.headerText}</h2>
 
         <img src={this.state.preview} />
 
@@ -49,6 +49,7 @@ export default class ProfileForm extends Component {
 
         <textarea
           type='submit'
+          placeholder='Tell us about yourself...'
           name='bio'
           value={this.state.bio}
           onChange={this.handleChange}>

@@ -2,8 +2,19 @@
   display: block;
   width: 70%;
   margin: $gutter-sm auto;
+  text-align: center;
 
   .img-preview {
-    width: 50%;
+    width: 50vw;
+  }
+
+  input {
+    width: 46vw;
+    margin: 0 auto 2vw auto;
+  }
+
+  button {
+    float: right;
+    margin: 0 3vw 4vw 0;
   }
 }

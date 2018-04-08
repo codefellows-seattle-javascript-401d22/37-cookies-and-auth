@@ -1,6 +1,8 @@
 .display-photo {
   margin: 0 auto;
   text-align: center;
+  display: block;
+  clear: both;
 
   img {
     width: 50vw;
