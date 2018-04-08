@@ -18,15 +18,14 @@ class PhotoItem extends Component {
       .catch(console.error);
   }
 
-  handleUpdate() {
+  handleUpdate(photo) {
     return this.props.updatePhoto(photo)
-      .then(() => this.setState({ editMode: false }))
+      .then(() => this.setState({ editMode: !this.state.editMode }))
       .catch(console.error);
   }
 
   render() {
     let { photo } = this.props;
-    console.log('photo-item',this.props);
 
     return (
       <div>
@@ -42,7 +41,8 @@ class PhotoItem extends Component {
           <img src={photo.url} />
           <p>{photo.description}</p>
           <button onClick={this.handleDelete}>delete</button>
-          <button onClick={() => this.setState({ editMode: true })}>update</button>
+          <button onClick={() => 
+            this.setState({ editMode: !this.state.editMode })}>update</button>
         </section>
       </div>
     );

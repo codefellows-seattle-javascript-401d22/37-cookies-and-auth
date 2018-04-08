@@ -3,8 +3,9 @@ export default (state=[], action) => {
 
   switch(type) {
   case 'PHOTO_FETCH':
-    return payload;
+    return payload.filter(photo => photo.profile !== null);
   case 'PHOTO_CREATE':
+    if (!payload.profile) return state;
     return [payload, ...state];
   case 'PHOTO_UPDATE':
     return state.map(photo => photo._id === payload._id ? payload : photo);

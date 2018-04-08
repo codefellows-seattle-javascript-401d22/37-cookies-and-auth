@@ -11,8 +11,8 @@ export default class ProfileForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillReceiveProps() {
-    if (this.props.profile) this.setState(props.profile);
+  componentWillReceiveProps(props) {
+    if (props.profile) this.setState(props.profile);
   }
 
   handleChange(e) {

@@ -46,6 +46,7 @@ export const photoCreateRequest = photo => (dispatch, getState) => {
 
 export const photoDeleteRequest = photo => (dispatch, getState) => {
   let { auth } = getState();
+  console.log(photo);
 
   return superagent.delete(`${__API_URL__}/photos/${photo._id}`)
     .set('Authorization', `Bearer ${auth}`)

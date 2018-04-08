@@ -32,9 +32,9 @@ export default class AuthForm extends Component {
 
     if (!this.state.error) {
       this.props.onComplete(this.state)
-        .then( () => {
-          this.setState({ username: '', email: '', password: '' });
-        })
+        // .then( () => {
+        //   this.setState({ username: '', email: '', password: '' });
+        // })
         .catch( err => {
           console.error(err);
           this.setState({ error: err });

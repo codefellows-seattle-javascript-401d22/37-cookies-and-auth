@@ -42,7 +42,7 @@ class NavBar extends Component {
 
     return (
       <header>
-        <h1>instaclone</h1>
+        <h1><Link to='/'>instaclone</Link></h1>
         <nav>
           {this.props.loggedIn ? 
             <ul>

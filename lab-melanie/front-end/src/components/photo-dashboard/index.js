@@ -14,7 +14,6 @@ class PhotoDashboard extends Component {
   }
 
   render() {
-    console.log('photo-dashboard',this.props.photos);
     return (
       <section className='dashboard-container'>
         <PhotoForm
