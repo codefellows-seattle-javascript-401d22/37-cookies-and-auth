@@ -133,7 +133,6 @@ class UserAuthForm extends React.Component {
         {util.renderIf(this.props.userAuth === 'signup',
           <div>
             <h2 className='title'>signup.</h2>
-            <Tooltip message={emailError} show={focused === 'email' || submitted} />
             <input
               className={util.classToggler({error: emailError})}
               type='text'
@@ -144,6 +143,7 @@ class UserAuthForm extends React.Component {
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
             />
+                        <Tooltip message={emailError} show={focused === 'email' || submitted} />
           </div>
         )}
 
@@ -151,7 +151,6 @@ class UserAuthForm extends React.Component {
             <h2 className='title'>signin.</h2>
         )}
 
-        <Tooltip message={usernameError} show={focused === 'username' || submitted}/>
         <input
           className={util.classToggler({error: usernameError || !usernameAvailable})}
           type='text'
@@ -162,14 +161,17 @@ class UserAuthForm extends React.Component {
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
         />
+        <Tooltip message={usernameError} show={focused === 'username' || submitted}/>
 
         {util.renderIf(username,
-          <p className='username-availability'>
-            {username} {usernameAvailable ? 'available': 'not available'}
-          </p>
+          <div className='username-availability-outer'>
+            <p className='username-availability'>
+              {username} {usernameAvailable ? 'available': 'not available'}
+            </p>
+          </div>
         )}
 
-        <Tooltip message={passwordError} show={ focused === 'password' || submitted}/>
+
         <input
           className={util.classToggler({passwordError})}
           type='password'
@@ -180,8 +182,9 @@ class UserAuthForm extends React.Component {
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
         />
+                <Tooltip message={passwordError} show={ focused === 'password' || submitted}/>
         
-        <button type='submit'> {this.props.userAuth} </button>
+        <button type='submit' className='lightButton'> {this.props.userAuth} </button>
       </form>
     );
   }

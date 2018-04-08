@@ -13,3 +13,32 @@ input[type="text"], input[type="password"] {
   padding: 0 2vw;
   border: .25vw solid $color-primary-dark;
 }
+
+.darkButton{
+  color: #FFF;
+  background: $color-primary-dark;
+}
+
+.lightButton {
+  margin-left: 5vw;
+  color: $color-primary-dark;
+  background: $color-primary-light;
+}
+
+.darkButton, .lightButton {
+  float: right;
+  padding: 2vw 5vw;
+  font-size: $font-sm;
+  border-radius: .5vw;
+}
+.darkButton:hover, .lightButton:hover {
+  background: -webkit-linear-gradient($red, $orange);
+  background: -moz-linear-gradient($red, $orange);
+  background: -o-linear-gradient($red, $orange);
+  background: linear-gradient($red, $orange);
+}
+
+.username-availability-outer {
+  margin: -2vw 0 2vw;
+  color: #4a4a4a;
+}

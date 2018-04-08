@@ -40,11 +40,11 @@ class UserAuthContainer extends React.Component {
 
         <div className='userauth-buttons'>
           {util.renderIf(params.userAuth === 'signin',
-            <Link to='/user/signup'> signup </Link>
+            <Link to='/user/signup'><button className='lightButton'>signup</button></Link>
           )}
 
           {util.renderIf(params.userAuth === 'signup',
-            <Link to='/user/signin'>signin</Link>
+            <Link to='/user/signin'><button className='darkButton'>signin</button></Link>
           )}
         </div>
       </section>
