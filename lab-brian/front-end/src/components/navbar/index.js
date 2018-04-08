@@ -55,8 +55,12 @@ class Navbar extends React.Component {
     return (
       <nav className='navbar'>
         <div className='nav-left'>
-          <Link to='/'><Icon className='logo' name='flame' /> <h1>Hot Pix</h1></Link>
+          <Link to='/' className='logoOuter'><Icon className='logo' name='flame' /> <h1>hot pix</h1></Link>
         </div>
+
+        {util.renderIf(this.props.loggedIn,
+          <button onClick={this.handleSignOut}>logout</button>
+        )}
 
         {util.renderIf(this.props.loggedIn,
           <div className='navLinks'>
@@ -71,9 +75,7 @@ class Navbar extends React.Component {
           <Avatar userprofile={this.props.userprofile} />
         )}
 
-        {util.renderIf(this.props.loggedIn,
-          <button onClick={this.handleSignOut}>logout</button>
-        )}
+
       </nav>
     );
   }
