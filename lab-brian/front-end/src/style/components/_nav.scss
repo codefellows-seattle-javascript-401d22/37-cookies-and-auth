@@ -23,7 +23,7 @@
 .logoOuter:hover svg #path2 {
   fill:$orange !important;
 }
-.logoOuter:hover h1, .navLinks a:hover {
+.logoOuter:hover h1, .navLinks a:hover, .fa-github:hover, .fa-linkedin:hover {
   background: -webkit-linear-gradient($red, $orange);
   background: -moz-linear-gradient($red, $orange);
   background: -o-linear-gradient($red, $orange);
