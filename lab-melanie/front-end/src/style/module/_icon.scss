@@ -1,0 +1,20 @@
+.icon {
+  svg {
+    margin: $gutter-sm/2 0;
+    width: 8vw;
+    height: 8vw;
+    float: left;
+
+    .frame {
+      fill: $fourth-color;
+    }
+
+    .background {
+      fill: #8CC541;
+    }
+
+    .sun {
+      fill: #FFDE41;
+    }
+  }
+}

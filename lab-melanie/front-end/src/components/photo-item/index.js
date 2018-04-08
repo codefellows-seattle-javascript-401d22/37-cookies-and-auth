@@ -27,6 +27,12 @@ class PhotoItem extends Component {
   render() {
     let { photo } = this.props;
 
+    let pencilData = require('../../assets/icons/pencil.icon.svg');
+    let pencilInnerHtml = {__html: pencilData};
+
+    let trashData = require('../../assets/icons/trash.icon.svg');
+    let trashInnerHtml = {__html: trashData};
+
     return (
       <div>
         {this.state.editMode ? 
@@ -39,10 +45,17 @@ class PhotoItem extends Component {
 
         <section className='display-photo'>
           <img src={photo.url} />
-          <p>{photo.description}</p>
-          <button onClick={this.handleDelete}>delete</button>
-          <button onClick={() => 
-            this.setState({ editMode: !this.state.editMode })}>update</button>
+          <div className='photo-details'>
+            <p>{photo.description}</p>
+            <div className='photo-controls'>
+              <a onClick={() => this.setState({ editMode: !this.state.editMode })}>
+                <div className='pencil-icon' dangerouslySetInnerHTML={pencilInnerHtml}></div>
+              </a>
+              <a onClick={this.handleDelete}>
+                <div className='trash-icon' dangerouslySetInnerHTML={trashInnerHtml}></div>
+              </a>
+            </div>
+          </div>
         </section>
       </div>
     );

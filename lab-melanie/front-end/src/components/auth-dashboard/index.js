@@ -14,7 +14,7 @@ class AuthDashboard extends Component {
     this.handleSignup = this.handleSignup.bind(this);
   }
 
-    // constructor(props) {
+  // constructor(props) {
   //   super(props);
   //   this.validateRoute = this.validateRoute.bind(this);
   //   this.handleLogout = this.handleLogout.bind(this);

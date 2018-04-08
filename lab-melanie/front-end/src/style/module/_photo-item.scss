@@ -1,5 +1,48 @@
 .display-photo {
+  margin: 0 auto;
+  text-align: center;
+
   img {
-    width: 15vw;
+    width: 50vw;
+    border-radius: $border-radius;
+    border: 1px #000 solid;
+  }
+
+  .photo-details {
+    width: 50vw;
+    text-align: left;
+
+    p {
+      display: inline-block;
+      text-align: left;
+      font-size: $font-large/2;
+    }
+
+    .photo-controls {
+      padding-top: .75vw;
+      float: right;
+      
+      a {
+        display: inline-block;
+        height: 1.75vw;
+        width: 1.75vw;
+  
+        .pencil-icon {
+          margin-right: 2.5vw;
+        }
+
+        .pencil-icon svg {
+          height: 2vw;
+          width: 2vw;
+          fill: $primary-color;
+        }
+
+        .trash-icon svg {
+          height: 2vw;
+          width: 2vw;
+          fill: $primary-color;
+        }
+      }
+    }
   }
 }

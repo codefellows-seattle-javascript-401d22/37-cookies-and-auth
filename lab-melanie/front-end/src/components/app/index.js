@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-// import { tokenSet } from '../../actions/auth-actions.js';
 import { profileFetch, profileFetchRequest } from '../../actions/profile-actions.js';
 
 import NavBar from '../nav/';

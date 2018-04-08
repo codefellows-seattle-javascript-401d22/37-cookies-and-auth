@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import Icon from '../icon';
 import ProfileAvatar from '../profile-avatar';
 import { readCookie } from '../../lib/util.js';
 import { tokenSet, logout } from '../../actions/auth-actions.js';
@@ -44,6 +45,7 @@ class NavBar extends Component {
 
     return (
       <header>
+        <Icon />
         <h1><Link to='/'>instaclone</Link></h1>
         <nav>
           {this.props.loggedIn ? 

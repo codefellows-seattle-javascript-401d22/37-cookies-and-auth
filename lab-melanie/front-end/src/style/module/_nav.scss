@@ -4,9 +4,9 @@ header {
 
   h1 {
     display: inline-block;
-    color: $tertiary-color;
+    color: $fourth-color;
     font-size: $font-large/1.5;
-    padding: $gutter-sm;
+    padding: $gutter-sm $gutter-sm/3;
   }
 
   nav {
