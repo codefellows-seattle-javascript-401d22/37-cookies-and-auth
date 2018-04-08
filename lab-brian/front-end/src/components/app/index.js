@@ -13,12 +13,7 @@ import { signIn } from '../../actions/userAuth-actions.js';
 import { userprofileFetchRequest } from '../../actions/userProfile-actions.js';
 
 class App extends React.Component {
-  componentDidMount() {
-    // let token = util.readCookie('X-Sluggram-Token');
-    // if (token) {
-    //   this.props.signIn(token);
-    // }
-  }
+  // componentDidMount() {}
 
   render() {
     return (

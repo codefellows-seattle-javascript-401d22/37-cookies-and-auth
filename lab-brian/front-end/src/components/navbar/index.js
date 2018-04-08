@@ -4,14 +4,18 @@ import { Redirect, Link } from 'react-router-dom';
 
 import Icon from '../icons';
 import Avatar from '../avatar';
-import { signIn, signOut } from '../../actions/userAuth-actions.js';
 import * as util from '../../lib/util.js';
+import { signIn, signOut } from '../../actions/userAuth-actions.js';
 import { userprofileFetchRequest } from '../../actions/userProfile-actions.js';
 
 class Navbar extends React.Component {
   constructor(props){
     super(props);
   }
+
+  // componentDidMount(){
+  //   this.validateRoute(this.props)
+  // }
 
   componentWillMount() {
     this.validateRoute(this.props);
@@ -37,7 +41,6 @@ class Navbar extends React.Component {
   };
 
   render() {
-    console.log('path', this.props.match);
     let NavLink = props => (
       <li className={util.classToggler({selected: props.url === `/${props.route}` })} >
         <Link to={`/${props.route}`}>
@@ -46,6 +49,7 @@ class Navbar extends React.Component {
       </li>
     );
 
+    console.log('path', this.props.match)
     let { url } = this.props.match;
 
     return (
@@ -57,9 +61,8 @@ class Navbar extends React.Component {
         {util.renderIf(this.props.loggedIn,
           <div className='navLinks'>
             <ul>
-              <li><Link to='/user/signup'>signup</Link></li>
-              <li><Link to='/user/signin'>signin</Link></li>
-              <li><Link to='/profile'>profile</Link></li>
+              <NavLink route='profile' url={url} />
+              <NavLink route='gallery' url={url} />
             </ul>
           </div>
         )}
@@ -77,7 +80,7 @@ class Navbar extends React.Component {
 }
 
 let mapStateToProps = state => ({
-  loggedIn: !!state.userAuth,
+  loggedIn: state.userAuth,
   userprofile: state.userprofile,
 });
 
