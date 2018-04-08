@@ -25,8 +25,6 @@ class App extends React.Component {
             <Route exact path='/profile' component={UserProfileContainer}/>
             <Route exact path='/gallery' component={UserGalleryContainer}/>
             <Route exact path='/' component={UserGalleryContainer}/>
-            {/* <Route exact path='/dashboard' component={DashboardContainer} />
-            <Route exact path='/' component={DashboardContainer} /> */}
             <Route path='*' component={Footer} />
           </section>
         </BrowserRouter>

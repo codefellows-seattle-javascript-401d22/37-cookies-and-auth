@@ -21,7 +21,6 @@ export const userprofileReset = () => ({
 
 // ASYNC
 export const userprofileCreateRequest = userprofile => (dispatch, getState) => {
-  console.log('works 2');
   let { userAuth } = getState();
   return superagent.post(`${__API_URL__}/profiles`)
     .set('Authorization', `Bearer ${userAuth}`)
