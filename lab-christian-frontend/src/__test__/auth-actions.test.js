@@ -1,4 +1,4 @@
-import {tokenSet, signupRequest, loginRequest} from '../actions/auth-actions';
+import {tokenSet, tokenDelete, signupRequest, loginRequest} from '../actions/auth-actions';
 import request from 'superagent';
 
 const randomNumber = max => {
@@ -17,14 +17,15 @@ describe('Auth Actions', function() {
   it('tokenSet should return a TOKEN_SET action', () => {
     let action = tokenSet({ token: '12345' });
     expect(action.type).toEqual('TOKEN_SET');
-    expect(action.payload).toEqual('12345');
+    expect(action.payload).toEqual({"token": "12345"});
     expect(action.payload.token).toBeTruthy();
   });
 
   it('tokenDelete should return a tokenDelete action', () => {
     let token = '12345';
     let action = tokenDelete(token);
-    expect(action).toEqual({ type: 'TOKEN_DELETE' });
+    expect(action.type).toEqual('TOKEN_DELETE');
+    expect(action.payload).toBeFalsy();
   });
 
   it('signupRequest should return a token', done => {
