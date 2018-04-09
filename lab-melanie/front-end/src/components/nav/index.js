@@ -20,19 +20,18 @@ class NavBar extends Component {
   }
 
   validateRoute(props) {
-    console.log(this.props);
     let { match, history } = props;
 
     let token = readCookie('X-Sluggram-Token');
     if (!token) return history.replace('/welcome/signup');
 
     this.props.tokenSet(token);
-    // this.props.profileFetch()
-    //   .then(profile => console.log('__PROFILE FETCHED__:', profile))
-    //   .catch(() => {
-    //     console.log('__PROFILE FETCH ERROR__: user does not have profile');
-    //     if (!match.url.startsWith('/settings')) return history.replace('/settings');
-    //   });
+    this.props.profileFetch()
+      .then(profile => console.log('__PROFILE FETCHED__:', profile))
+      .catch(() => {
+        console.log('__PROFILE FETCH ERROR__: user does not have profile');
+        if (!match.url.startsWith('/settings')) return history.replace('/settings');
+      });
   }
 
   handleLogout() {

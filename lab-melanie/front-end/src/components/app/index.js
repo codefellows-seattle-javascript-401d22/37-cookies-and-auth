@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Favicon from 'react-favicon';
 
+import { logError, readCookie } from '../../lib/util';
 import { profileFetch, profileFetchRequest } from '../../actions/profile-actions.js';
 
 import NavBar from '../nav/';
@@ -19,6 +21,9 @@ class App extends Component {
   render() {
     return (
       <main className='instaclone'>
+        <div>
+          <Favicon url='../../assets/favicon.png' />
+        </div>
         <BrowserRouter>
           <section>
             <Route path='*' component={NavBar}/>

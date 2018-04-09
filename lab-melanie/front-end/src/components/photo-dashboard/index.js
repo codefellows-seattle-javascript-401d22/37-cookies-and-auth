@@ -23,6 +23,7 @@ class PhotoDashboard extends Component {
             return this.props.photoCreate(photo)
               .catch(console.errror);
           }}
+          className='photo-form'
         />
 
         {this.props.photos.length > 0 ? 

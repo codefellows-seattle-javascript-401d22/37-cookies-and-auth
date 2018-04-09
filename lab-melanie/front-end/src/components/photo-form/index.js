@@ -42,7 +42,7 @@ export default class PhotoForm extends Component {
   
   render() {
     return (
-      <form className='photo-form' onSubmit={this.handleSubmit}>
+      <form className={this.props.className} onSubmit={this.handleSubmit}>
         {this.state.preview ? 
           <img 
             className='img-preview'

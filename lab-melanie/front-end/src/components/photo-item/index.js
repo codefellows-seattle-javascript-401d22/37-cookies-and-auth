@@ -40,6 +40,7 @@ class PhotoItem extends Component {
             photo={photo}
             buttonText='update photo'
             onComplete={this.handleUpdate}
+            className='photo-form-edit'
           />
           : undefined }
 

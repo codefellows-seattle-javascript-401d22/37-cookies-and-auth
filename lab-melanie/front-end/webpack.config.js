@@ -64,19 +64,19 @@ module.exports = {
         test: /\.icon.svg$/,
         loader: 'raw-loader',
       },
-      // {
-      //   test: /\.(jpg|jpeg|gif|png|tiff|svg)$/,
-      //   exclude: /\.glyph.svg$/,
-      //   use: [
-      //     {
-      //       loader: 'url-loader',
-      //       options: {
-      //         limit: 6000,
-      //         name: 'image/[name].[ext]',
-      //       },
-      //     },
-      //   ],
-      // },
+      {
+        test: /\.(jpg|jpeg|gif|png|tiff)$/,
+        exclude: /\.icon.svg$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 6000,
+              name: 'image/[name].[ext]',
+            },
+          },
+        ],
+      },
       // {
       //   test: /\.(mp3|aac|aiff|wav|flac|m4a|mp4|ogg)$/,
       //   exclude: /\.glyph.svg$/,

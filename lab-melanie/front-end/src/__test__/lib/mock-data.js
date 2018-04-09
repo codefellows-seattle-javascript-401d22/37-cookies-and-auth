@@ -7,7 +7,7 @@ export const mockUser = {
 };
 
 export const mockProfile = {
-  // avatar: 'https://mbcinstaclonebucket.s3.us-west-2.amazonaws.com/51017a25b7d61bfcb78d17a9cee58351.porg.jpg',
+  avatar: 'https://s3-us-west-2.amazonaws.com/mbcinstaclonebucket/29ef5e963eaff5dc607ff1955466e6a1.porg.jpg',
   bio: 'hello',
   email: mockUser.email,
   username: mockUser.username,

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import { photoToDataUrl } from '../../lib/util.js';
 
 export default class ProfileForm extends Component {

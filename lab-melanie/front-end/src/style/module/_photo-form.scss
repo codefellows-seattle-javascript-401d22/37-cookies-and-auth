@@ -1,4 +1,5 @@
-.photo-form {
+.photo-form, .photo-form-edit {
+  clear: both;
   display: block;
   margin: $gutter-sm auto;
   text-align: center;

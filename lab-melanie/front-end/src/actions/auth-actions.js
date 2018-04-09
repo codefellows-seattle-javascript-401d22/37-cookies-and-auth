@@ -16,7 +16,13 @@ export const signUpRequest = user => dispatch => {
     .send(user)
     .withCredentials()
     .then(res => {
-      return dispatch(tokenSet(res.text));
+      dispatch(tokenSet(res.text));
+      try {
+        localStorage.token = res.text;
+      } catch (error) {
+        console.log(error);
+      }
+      return res;
     });
 };
 
@@ -25,6 +31,7 @@ export const signinRequest = user => dispatch => {
     .auth(user.username, user.password)
     .withCredentials()
     .then(res => {
-      return dispatch(tokenSet(res.text));
+      dispatch(tokenSet(res.text));
+      return res;
     });
 };

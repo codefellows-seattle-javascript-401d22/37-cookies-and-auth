@@ -1,7 +1,5 @@
-// TO DO: UPDATE BASED ON JEST GLOBAL
-
 import superagent from 'superagent';
-import { tokenSet, tokenDelete, signUpRequest, signinRequest } from '../actions/auth-actions.js';
+import { tokenSet, logout, signUpRequest, signinRequest } from '../actions/auth-actions.js';
 import { mockUser } from './lib/mock-data.js';
 
 describe('Auth Actions', () => {
@@ -14,10 +12,10 @@ describe('Auth Actions', () => {
     expect(action.payload.token).toEqual('12345');
   });
 
-  test('tokenDelete should return a TOKEN_DELETE action', () => {
+  test('logout should return a LOGOUT action', () => {
     let token = '12345';
-    let action = tokenDelete(token);
-    expect(action.type).toEqual('TOKEN_DELETE');
+    let action = logout();
+    expect(action.type).toEqual('LOGOUT');
   });
 
   test('signupRequest should return a token', done => {
