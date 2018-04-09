@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 
 import Icon from '../icons';
-import Avatar from '../avatar';
 import * as util from '../../lib/util.js';
-import { signIn, signOut } from '../../actions/userAuth-actions.js';
+import { signIn } from '../../actions/userAuth-actions.js';
 import { userprofileFetchRequest } from '../../actions/userProfile-actions.js';
 
 class Navbar extends React.Component {
@@ -66,7 +65,6 @@ class Navbar extends React.Component {
             </ul>
           </div>
         )}
-        <p onClick={this.handleSignOut}>logout</p>
 
       </nav>
     );
@@ -79,7 +77,6 @@ let mapStateToProps = state => ({
 });
 
 let mapDispatchToProps = dispatch => ({
-  signOut: () => dispatch(signOut()),
   signIn: token => dispatch(signIn(token)),
   userprofileFetch: () => dispatch(userprofileFetchRequest()),
 });

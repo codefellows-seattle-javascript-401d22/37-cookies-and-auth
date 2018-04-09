@@ -1,6 +1,6 @@
 # Code Fellows: Code 401d22: Full-Stack JavaScript
 
-## Lab 38: Asset Upload
+## Lab 39: Asset Upload final
 
 Intro to testing and uploading assetts to S3 in React, connected to a Mongo and Express backend.
 
