@@ -1,5 +1,6 @@
 'use strict';
 
+//code pulled from: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
 export const getCookie = (name) => {
   var nameEQ = name + "=";
   var ca = document.cookie.split(';');
