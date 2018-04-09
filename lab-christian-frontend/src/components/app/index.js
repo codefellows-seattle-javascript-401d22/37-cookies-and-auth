@@ -1,6 +1,6 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import Landing from '../landing';
 import appCreateStore from '../../lib/app-create-store';
 
@@ -22,7 +22,7 @@ class App extends React.Component {
                   </ul>
                 </nav>
               </header>
-              <Route path='/weclome/:auth' component={Landing} />
+              <Route path='/welcome/:auth' component={Landing} />
             </section>
           </BrowserRouter>
         </Provider>
