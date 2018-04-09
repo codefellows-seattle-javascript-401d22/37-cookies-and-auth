@@ -1,0 +1,38 @@
+header {
+  padding: 0 $gutter-sm;
+  background: $primary-color;
+
+  h1 {
+    display: inline-block;
+    color: $fourth-color;
+    font-size: $font-large/1.5;
+    padding: $gutter-sm $gutter-sm/3;
+  }
+
+  nav {
+    float: right;
+    padding-top: $gutter-sm/3;
+  }
+  
+  img {
+    height: 4vw;
+    border-radius: 50%;
+  }
+
+  ul {
+    display: inline-block;
+  }
+
+  li {
+    margin-top: .5vw;
+    font-size: $font-large/2.75;
+    padding: $gutter-sm;
+    display: inline-block;
+  }
+
+  .profile-avatar {
+    padding: 2vw;
+    margin-bottom: 3vw;
+    float: right;
+  }
+}

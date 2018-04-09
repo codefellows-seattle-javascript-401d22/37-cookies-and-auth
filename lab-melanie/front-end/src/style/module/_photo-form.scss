@@ -1,0 +1,24 @@
+.photo-form, .photo-form-edit {
+  clear: both;
+  display: block;
+  margin: $gutter-sm auto;
+  text-align: center;
+
+  .img-preview {
+    width: 50vw;
+  }
+
+  input {
+    width: 46vw;
+    margin: 0 auto 2vw auto;
+  }
+
+  input[type='text'] {
+    height: 2vw;
+  }
+
+  button {
+    float: right;
+    margin: 0 15vw 4vw 0;
+  }
+}
