@@ -30,11 +30,13 @@ class UserGalleryItem extends React.Component {
     return (
       <div>
         {util.renderIf(!this.state.editing,
-          <div>
-            <img src={userGalleryItem.url} />
-            <p> {userGalleryItem.description}</p>
-            <i onClick={this.handleDelete} className='fa fa-trash-o fa-3x' />
-            <i onClick={() => this.setState({ editing: true })} className='fa fa-pencil fa-3x' />
+          <div className='userGalleryItem'>
+            <div className='userGalleryItemImageContainer'>
+              <img src={userGalleryItem.url} />
+            </div>
+            <p className='galleryItemDescription'> {userGalleryItem.description}</p>
+            <i onClick={this.handleDelete} className='fa fa-trash-o' />
+            <i onClick={() => this.setState({ editing: true })} className='fa fa-pencil' />
           </div>
         )}
 

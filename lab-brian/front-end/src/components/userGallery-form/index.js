@@ -51,9 +51,10 @@ class UserGalleryForm extends React.Component {
           type='text'
           value={this.state.description}
           onChange={this.handleChange}
+          placeholder='description'
         />
 
-        <button type='submit'> {this.props.buttonText} </button>
+        <button type='submit' className='darkButton'> {this.props.buttonText} </button>
       </form>
     );
   }

@@ -4,7 +4,7 @@
   margin-bottom: 3.5vw;
   font-weight: 300;
 }
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="file"], textarea {
   width: calc(100% - 4vw);
   height: 7vw;
   border-radius: .5vw;
@@ -12,6 +12,18 @@ input[type="text"], input[type="password"] {
   font-size: 2.2vw;
   padding: 0 2vw;
   border: .25vw solid $color-primary-dark;
+}
+
+input[type="file"] {
+  background: #EEE;
+}
+.userprofile-form img {
+  text-align: center;
+}
+
+textarea {
+  padding: 2vw;
+  height: 20vw;
 }
 
 .darkButton{
@@ -29,7 +41,7 @@ input[type="text"], input[type="password"] {
   float: right;
   padding: 2vw 5vw;
   font-size: $font-sm;
-  border-radius: .5vw;
+  border-radius: 1vw;
 }
 .darkButton:hover, .lightButton:hover {
   background: -webkit-linear-gradient($red, $orange);

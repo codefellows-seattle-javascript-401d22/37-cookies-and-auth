@@ -59,10 +59,6 @@ class Navbar extends React.Component {
         </div>
 
         {util.renderIf(this.props.loggedIn,
-          <button onClick={this.handleSignOut}>logout</button>
-        )}
-
-        {util.renderIf(this.props.loggedIn,
           <div className='navLinks'>
             <ul>
               <NavLink route='profile' url={url} />
@@ -70,11 +66,7 @@ class Navbar extends React.Component {
             </ul>
           </div>
         )}
-
-        {util.renderIf(this.props.userprofile,
-          <Avatar userprofile={this.props.userprofile} />
-        )}
-
+        <p onClick={this.handleSignOut}>logout</p>
 
       </nav>
     );

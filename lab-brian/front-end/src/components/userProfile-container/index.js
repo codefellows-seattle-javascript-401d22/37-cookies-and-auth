@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import Avatar from '../avatar';
+import * as util from '../../lib/util.js';
 import UserProfileForm from '../userProfile-form';
 import { userprofileCreateRequest, userprofileUpdateRequest } from '../../actions/userProfile-actions.js';
 
@@ -33,10 +36,20 @@ class UserProfileContainer extends React.Component {
 
     return(
       <section className='profile-container'>
-        <h2> Profile Settings: </h2>
+        <h2 className='title'> create a profile.
+
+        {util.renderIf(this.props.userprofile,
+          <div className='avatarDiv'>
+            <Avatar userprofile={this.props.userprofile} />
+            {/* <p className='logout' onClick={this.handleSignOut}>logout</p> */}
+          </div>
+        )}
+
+        </h2>
+
         <UserProfileForm 
           userprofile={this.props.userprofile}
-          buttonText='create profile'
+          buttonText='create'
           onComplete={handleComplete}
         />
       </section>

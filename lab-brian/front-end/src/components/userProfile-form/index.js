@@ -56,7 +56,7 @@ class UserProfileForm extends React.Component {
           onChange={this.handleChange}>
         </textarea>
 
-        <button type='submit'>{this.props.buttonText}</button>
+        <button type='submit' className='darkButton'>{this.props.buttonText}</button>
       </form>
     );
   }
