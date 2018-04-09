@@ -23,7 +23,7 @@ export const albumDelete = album => ({
   payload: album,
 })
 
-export const albumFetchAllUserRequest = (dispatch, getState) => {
+export const albumFetchAllUserRequest = () => (dispatch, getState) => {
   let {auth} = getState();
   return superagent.get(`${__API_URL__}/api/photoalbum/user/me`)
     .set('Authorization', `Bearer ${auth}`)

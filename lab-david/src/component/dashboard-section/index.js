@@ -17,6 +17,12 @@ class DashboardSection extends React.Component{
       .catch(util.logError);
   }
 
+  componentWillReceiveProps(props){
+    if(this.props.userAlbums){
+
+    }
+  }
+
   render(){
     return(
       <section className='dashboard-section'>
@@ -34,7 +40,7 @@ class DashboardSection extends React.Component{
 }
 
 let mapStateToProps = state => ({
-  userAlbums: state.albums
+  userAlbums: state.album
 })
 
 let mapDispatchToProps = dispatch => ({
