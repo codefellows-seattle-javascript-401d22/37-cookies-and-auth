@@ -24,7 +24,15 @@ header {
   }
 
   li {
+    margin-top: .5vw;
+    font-size: $font-large/2.75;
     padding: $gutter-sm;
     display: inline-block;
+  }
+
+  .profile-avatar {
+    padding: 2vw;
+    margin-bottom: 3vw;
+    float: right;
   }
 }

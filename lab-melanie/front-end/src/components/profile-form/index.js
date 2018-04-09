@@ -39,7 +39,9 @@ export default class ProfileForm extends Component {
       <form className='profile-form' onSubmit={this.handleSubmit}>
         <h2>{this.props.headerText}</h2>
 
-        <img src={this.state.preview} />
+        <div>
+          <img src={this.state.preview} />
+        </div>
 
         <input
           type='file'

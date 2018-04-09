@@ -1,6 +1,5 @@
 .photo-form {
   display: block;
-  width: 70%;
   margin: $gutter-sm auto;
   text-align: center;
 
@@ -13,8 +12,12 @@
     margin: 0 auto 2vw auto;
   }
 
+  input[type='text'] {
+    height: 2vw;
+  }
+
   button {
     float: right;
-    margin: 0 3vw 4vw 0;
+    margin: 0 15vw 4vw 0;
   }
 }

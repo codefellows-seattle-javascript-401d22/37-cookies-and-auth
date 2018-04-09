@@ -1,39 +1,43 @@
-.profile-form {
+.profile-form-edit, .profile-form {
   display: block;
-  width: 70%;
   margin: $gutter-sm auto;
 
-  // still need to sort out this component's CSS some more
   h2 {
     margin: 0 23vw 0 7.7vw;
-    display: inline-block;
-    padding-bottom: $gutter-sm/2;
+    display: block;
+    font-size: $font-large/1.75;
+  }
+
+  div {
+    display: block;
   }
 
   img {
-    max-width: 3.5vw;
+    margin: 2vw auto;
+    height: 25vw;
     border-radius: 50%;
-    display: inline-block;
-    margin-right: 5vw;
   }
 
   input {
-    width: 65%;
-    margin: 0 auto $gutter-sm/2 auto;
+    width: 50vw;
+    padding: $input-padding;
+    margin: 0 auto 2vw auto;
   }
 
   textarea {
+    padding: $input-padding;
     display: block;
     margin: 0 auto $gutter-sm/2 auto;
     border-radius: $border-radius;
     border: $input-border;
-    width: 65%;
+    width: 50vw;
+    height: 5vw;
   }
 
   button {
     float: right;
     display: block;
-    margin-right: 7.75vw;
+    margin-right: 13vw;
   }
 
 }

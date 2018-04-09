@@ -58,6 +58,7 @@ export default class PhotoForm extends Component {
 
         <input
           name='description'
+          placeholder='description'
           type='text'
           value={this.state.description}
           onChange={this.handleChange}

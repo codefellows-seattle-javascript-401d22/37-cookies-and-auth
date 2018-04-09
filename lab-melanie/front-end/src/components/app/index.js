@@ -21,7 +21,7 @@ class App extends Component {
       <main className='instaclone'>
         <BrowserRouter>
           <section>
-            <Route path='*' component={NavBar} />
+            <Route path='*' component={NavBar}/>
             <Route exact path='/welcome/:auth' component={AuthDashboard} />
             <Route exact path='/settings' component={ProfileContainer} />
             <Route exact path='/dashboard' component={PhotoDashboard} />

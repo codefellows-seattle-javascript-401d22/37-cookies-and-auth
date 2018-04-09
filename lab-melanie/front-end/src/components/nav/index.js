@@ -50,13 +50,13 @@ class NavBar extends Component {
         <nav>
           {this.props.loggedIn ? 
             <ul>
-              {this.props.profile ?
-                <li><ProfileAvatar profile={this.props.profile} /></li>
-                : undefined
-              }
               <li><Link to='/settings'>settings</Link></li>
               <li><Link to='/dashboard'>dashboard</Link></li>
-              <button onClick={this.handleLogout}>log out</button>
+              <li><a onClick={this.handleLogout}>log out</a></li>
+              {this.props.profile ?
+                <li className='profile-avatar'><Link to='/settings'><ProfileAvatar profile={this.props.profile} /></Link></li>
+                : undefined
+              }
             </ul>
             :
             <ul>

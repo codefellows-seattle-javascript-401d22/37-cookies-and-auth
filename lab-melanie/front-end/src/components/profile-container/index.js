@@ -31,9 +31,10 @@ class ProfileContainer extends Component {
       : this.handleProfileUpdate;
 
     return (
-      <section className='profile-container'>
+      <section className='profile-page'>
         {this.props.profile && !this.state.editProfileMode ?
-          <div>
+          <div className='profile-container-noedit'>
+            <h2>welcome back, {profile.username}</h2>
             <img src={profile.avatar} />
             <p><span>Username:</span> {profile.username}</p>
             <p><span>Email:</span> {profile.email}</p>
@@ -43,7 +44,7 @@ class ProfileContainer extends Component {
           : undefined}
 
         {this.props.profile && this.state.editProfileMode ?
-          <div className='profile-container'>
+          <div className='profile-container-edit'>
             <ProfileForm
               headerText='update your profile'
               profile={this.props.profile}
@@ -58,7 +59,7 @@ class ProfileContainer extends Component {
             <ProfileForm
               headerText='create a profile'
               profile={this.props.profile}
-              buttonText='update profile'
+              buttonText='create profile'
               onComplete={handleComplete}
             />
           </div>

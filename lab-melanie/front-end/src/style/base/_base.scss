@@ -37,3 +37,10 @@ button {
   border: none;
   text-transform: lowercase;
 }
+
+footer {
+  clear: both;
+  height: 75px;
+  color: $primary-color;
+  z-index: 99;
+}

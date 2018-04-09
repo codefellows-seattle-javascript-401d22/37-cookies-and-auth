@@ -16,6 +16,7 @@ class PhotoDashboard extends Component {
   render() {
     return (
       <section className='photo-dashboard'>
+        <h2>gallery</h2>
         <PhotoForm
           buttonText='post'
           onComplete={photo => {
