@@ -1,0 +1,37 @@
+.userGallery-container .avatarDiv {
+  text-align: right;
+}
+.userGallery-container .avatar {
+  margin-right: 2vw;
+}
+.logout {
+  color: $color-primary-dark;
+}
+.logout:hover {
+  text-decoration: underline;
+}
+.userGalleryItem-form {
+  margin-bottom: 8vw;
+}
+.galleryItemDescription {
+  width: calc(100% - 10vw);
+  display: inline-block;
+  color: $color-primary-dark;
+  font-size: $font-md;
+  text-align: left;
+}
+.userGallery-container i {
+  color: $color-primary-dark;
+  margin: 0 1vw;
+  font-size: $font-md;
+}
+.userGalleryItem {
+  text-align: center;
+  margin: 2vw 0;
+}
+.userGalleryItemImageContainer {
+  width: 100%;
+  text-align: center;
+  background: rgba(155,155,155,.3);
+  margin: 1vw;
+}

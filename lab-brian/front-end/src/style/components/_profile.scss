@@ -1,0 +1,17 @@
+.profile-container .avatarDiv {
+  float: right;
+}
+.avatar {
+  display: inline-block;
+  margin-top: -3.5vw;
+}
+.avatar img {
+  height: 10.5vw;
+  border-radius: 50%;
+}
+.logout {
+  cursor: pointer;
+  font-size: $font-sm;
+  display: inline-block;
+  transform: translate(0, -4.15vw);
+}

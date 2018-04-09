@@ -1,0 +1,56 @@
+.title {
+  font-size: $font-md;
+  color: $color-primary-dark;
+  margin-bottom: 3.5vw;
+  font-weight: 300;
+}
+input[type="text"], input[type="password"], input[type="file"], textarea {
+  width: calc(100% - 4vw);
+  height: 7vw;
+  border-radius: .5vw;
+  margin-bottom: 5vw;
+  font-size: 2.2vw;
+  padding: 0 2vw;
+  border: .25vw solid $color-primary-dark;
+}
+
+input[type="file"] {
+  background: #EEE;
+}
+.userprofile-form img {
+  text-align: center;
+}
+
+textarea {
+  padding: 2vw;
+  height: 20vw;
+}
+
+.darkButton{
+  color: #FFF;
+  background: $color-primary-dark;
+}
+
+.lightButton {
+  margin-left: 5vw;
+  color: $color-primary-dark;
+  background: $color-primary-light;
+}
+
+.darkButton, .lightButton {
+  float: right;
+  padding: 2vw 5vw;
+  font-size: $font-sm;
+  border-radius: 1vw;
+}
+.darkButton:hover, .lightButton:hover {
+  background: -webkit-linear-gradient($red, $orange);
+  background: -moz-linear-gradient($red, $orange);
+  background: -o-linear-gradient($red, $orange);
+  background: linear-gradient($red, $orange);
+}
+
+.username-availability-outer {
+  margin: -2vw 0 2vw;
+  color: #4a4a4a;
+}
