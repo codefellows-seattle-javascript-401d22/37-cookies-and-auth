@@ -1,27 +1,45 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import {connect} from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-import appCreateStore from '../../lib/app-create-store.js';
+
+import * as util from '../../lib/util.js';
 import Navbar from '../navbar';
-import Dashboard from '../dashboard';
+import UserAuthContainer from '../userAuth-container';
+import UserProfileContainer from '../userProfile-container';
+import UserGalleryContainer from '../userGallery-container';
 import Footer from '../footer';
 
-const store = appCreateStore();
+import { signIn } from '../../actions/userAuth-actions.js';
+import { userprofileFetchRequest } from '../../actions/userProfile-actions.js';
 
-export default class App extends React.Component {
+class App extends React.Component {
+  // componentDidMount() {}
+
   render() {
     return (
-      <main className='hotpix'>
-        <Provider store={store}>
-          <BrowserRouter>
-            <section>
-              <Navbar />
-              <Route path='/user/:auth' component={Dashboard} />
-              <Footer />
-            </section>
-          </BrowserRouter>
-        </Provider>
-      </main>
+      <section className='hotpix'>
+        <BrowserRouter>
+          <section>
+            <Route path='*' component={Navbar} />
+            <Route path='/user/:userAuth' component={UserAuthContainer} />
+            <Route exact path='/profile' component={UserProfileContainer}/>
+            <Route exact path='/gallery' component={UserGalleryContainer}/>
+            <Route exact path='/' component={UserGalleryContainer}/>
+            <Route path='*' component={Footer} />
+          </section>
+        </BrowserRouter>
+      </section>
     );
   }
 }
+
+let mapStateToProps = state => ({
+  userprofile: state.userprofile,
+});
+
+let mapDispatchToProps = dispatch => ({
+  signIn: token => dispatch(signIn(token)),
+  userprofileFetch: () => dispatch(userprofileFetchRequest()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,20 +1,23 @@
 import superagent from 'superagent';
+import * as util from '../lib/util.js';
 
-export const tokenSet = token => ({
-  type: 'TOKEN_SET',
+export const signIn = token => ({
+  type: 'SIGN_IN',
   payload: token,
 });
 
-export const tokenDelete = () => ({
-  type: 'TOKEN_DELETE',
-});
+export const signOut = () => {
+  util.deleteCookie('X-Sluggram-Token');
+  return { type: 'SIGN_OUT' };
+};
 
+// ASYNC
 export const signupRequest = user => dispatch => {
   return superagent.post(`${__API_URL__}/signup`)
     .withCredentials()
     .send(user)
     .then( res => {
-      dispatch(tokenSet(res.text));
+      dispatch(signIn(res.text));
       try {
         localStorage.token = res.text;
       } catch (err) {
@@ -29,7 +32,7 @@ export const signinRequest = user => dispatch => {
     .withCredentials()
     .auth(user.username, user.password)
     .then( res => {
-      dispatch(tokenSet(res.text));
+      dispatch(signIn(res.text));
       return;
     });
 };

@@ -1,8 +1,8 @@
 # Code Fellows: Code 401d22: Full-Stack JavaScript
 
-## Lab 37: Cookies and Auth
+## Lab 39: Asset Upload final
 
-Intro to auth in React, connected to a Mongo and Express backend.
+Intro to testing and uploading assetts to S3 in React, connected to a Mongo and Express backend.
 
 ## Tech/frameworks/packages
 
@@ -42,7 +42,7 @@ Intro to auth in React, connected to a Mongo and Express backend.
 
 
 ## How to use?
-Clone this repo, open up 3 tabs in your terminal. CD into `lab-brian/back-end`, run `npm i`. Create a .env file following the instructions in the back-end's README.md. After your .env is created run `npm run dbon` to spin up Mongo. Next, run `npm run start` from the root of the 'back-end' folder. Finally, in a new Terminal tab CD into 'front-end' and run `npm i` once is this is done create a `.dev.env` at the root of the 'front-end' and add the following line of code `API_URL=http://localhost:3000`. Lastly run `npm run watch` and proceed to 'http://localhost:8080/'. You will then be able to signup and signin as a user.
+Clone this repo, open up 3 tabs in your terminal. CD into `lab-brian/back-end`, run `npm i`. Create a .env file following the instructions in the back-end's README.md. After your .env is created run `npm run dbon` to spin up Mongo. Next, run `npm run start` from the root of the 'back-end' folder. Finally, in a new Terminal tab CD into 'front-end' and run `npm i` once is this is done create a `.dev.env` at the root of the 'front-end' and add the following line of code `API_URL=http://localhost:3000`. Lastly run `npm run watch` and proceed to 'http://localhost:8080/'. You will then be able to signup and signin as a user and upload omages to s3.
 
 ## Contribute
 
