@@ -1,10 +1,9 @@
 import React from 'react';
-import * as util from '../../lib/util';
 
 class UserProfileForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.userprofile ? {...props.userprofile, preview: ''} : { bio: '', avatar: null, preview: ''};
+    this.state = props.userprofile ? {...props.userprofile} : { bio: '', avatar: null };
   }
 
   componentWillReceiveProps(props) {
@@ -25,9 +24,7 @@ class UserProfileForm extends React.Component {
       console.log('FILES:', files);
       let avatar = files[0];
       this.setState({ avatar });
-      util.photoToDataURL(avatar)
-        .then(preview => this.setState({ preview }))
-        .catch(console.error);
+      this.props.onAvatarSelect(avatar);
     }
   }
 
@@ -40,7 +37,6 @@ class UserProfileForm extends React.Component {
   render() {
     return (
       <form className='userprofile-form' onSubmit={this.handleSubmit}>
-        <img src={ this.state.preview || this.state.avatar } />
 
         <input 
           type='file'
