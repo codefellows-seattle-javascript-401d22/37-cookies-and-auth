@@ -26,6 +26,7 @@ class UserAuthForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+
   componentWillUnmount() {
     this.setState({ username: '', email: '', password: '' });
   }
@@ -143,7 +144,7 @@ class UserAuthForm extends React.Component {
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
             />
-                        <Tooltip message={emailError} show={focused === 'email' || submitted} />
+            <Tooltip message={emailError} show={focused === 'email' || submitted} />
           </div>
         )}
 
@@ -182,8 +183,12 @@ class UserAuthForm extends React.Component {
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
         />
-                <Tooltip message={passwordError} show={ focused === 'password' || submitted}/>
-        
+        <Tooltip message={passwordError} show={ focused === 'password' || submitted}/>
+
+        {util.renderIf(this.props.userAuth === 'signin',
+          <a href='https://accounts.google.com/o/oauth2/v2/auth?client_id=767730296032-vod2j41qvpemvu2glfusclouco0l1ld0.apps.googleusercontent.com&response_type=code&scope=openid%20profile%20email&prompt=consent&redirect_uri=http://localhost:3000/oauth/google' rel="noopener noreferrer" className='outh'>signin with Google</a>
+        )}
+
         <button type='submit' className='lightButton'> {this.props.userAuth} </button>
       </form>
     );
@@ -191,4 +196,8 @@ class UserAuthForm extends React.Component {
 }
 
 export default UserAuthForm;
+
+
+// 'https://accounts.google.com/o/oauth2/v2/auth?client_id=767730296032-vod2j41qvpemvu2glfusclouco0l1ld0.apps.googleusercontent.com&response_type=code&scope=openid%20profile%20email&prompt=consent&redirect_uri=http://localhost:3000/oauth/google'
+{/* <a href='https://accounts.google.com/o/oauth2/v2/auth?client_id=767730296032-vod2j41qvpemvu2glfusclouco0l1ld0.apps.googleusercontent.com&response_type=code&scope=openid%20profile%20email&prompt=consent&redirect_uri=http://localhost:3000/oauth/google' rel="noopener noreferrer" className='outh'>signin with Google</a> */}
 
