@@ -1,8 +1,8 @@
 # Code Fellows: Code 401d22: Full-Stack JavaScript
 
-## Lab 39: Asset Upload final
+## Lab 41: O-Auth
 
-Intro to testing and uploading assetts to S3 in React, connected to a Mongo and Express backend.
+Intro to o-auth with React and Google. From scratch Google o-auth login. Click the signin button then the google link to sign in wiht oauth.
 
 ## Tech/frameworks/packages
 
@@ -56,8 +56,3 @@ Read Me template created by Robert Reed https://github.com/RobertMcReed
 ## License
 
 MIT. Use it up!
-
-
-767730296032-vod2j41qvpemvu2glfusclouco0l1ld0.apps.googleusercontent.com
-
-/oauth/google
