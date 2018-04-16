@@ -1,7 +1,7 @@
 import React from 'react';
 import * as util from '../../lib/util.js';
 
-class Profile extends React.Component {
+class ProfileForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.profile ? {...props.profile, preview: '' } : { bio: '', avatar: null, preview: '' };

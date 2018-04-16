@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import ProfileForm from '../profile-form';
 import {profileCreateRequest} from '../../action/profile-actions.js';
 
-class Settings extends React.Component {
+class SettingsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.handleProfileCreate = this.handleProfileCreate.bind(this);
@@ -18,13 +18,14 @@ class Settings extends React.Component {
       .catch(console.error);
   }
 
+  
   handleProfileUpdate() { }
 
   render() {
     let handleComplete = this.props.profile ? this.handleProfileCreate : this.handleProfileUpdate;
     
     return (
-      <section className='settings'>
+      <section className='settings-container'>
         <h2>Profile Settings:</h2>
         <ProfileForm
           buttonText='create profile'
@@ -42,4 +43,4 @@ let mapDispatchToProps = (dispatch) => ({
   profileCreate: (profile) => dispatch(profileCreateRequest(profile)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Settings);
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer);
