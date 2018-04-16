@@ -1,45 +1,58 @@
+import './_settings-container.scss';
 import React from 'react';
 import {connect} from 'react-redux';
 import ProfileForm from '../profile-form';
-import {profileCreateRequest} from '../../action/profile-actions.js';
+import {
+  userProfileCreateRequest,
+  userProfileUpdateRequest,
+} from '../../action/profile-actions.js';
 
-class Settings extends React.Component {
-  constructor(props) {
+class SettingsContainer extends React.Component {
+  constructor(props){
     super(props);
     this.handleProfileCreate = this.handleProfileCreate.bind(this);
     this.handleProfileUpdate = this.handleProfileUpdate.bind(this);
   }
 
-  handleProfileCreate(profile) {
-    return this.props.profileCreate(profile)
-      .then( res => {
-        console.log('profile created:', res);
+  handleProfileCreate(userProfile){
+    return this.props.userProfileCreate(userProfile)
+      .then(() => {
+        this.props.history.push('/dashboard');
       })
       .catch(console.error);
   }
 
-  handleProfileUpdate() { }
+  handleProfileUpdate(profile){
+    return this.props.userProfileUpdate(profile)
+      .catch(console.error);
+  }
 
-  render() {
-    let handleComplete = this.props.profile ? this.handleProfileCreate : this.handleProfileUpdate;
-    
+  render(){
+    let handleComplete = this.props.userProfile
+      ? this.handleProfileUpdate
+      : this.handleProfileCreate;
+
     return (
-      <section className='settings'>
-        <h2>Profile Settings:</h2>
+      <div className='settings-container'>
+        <h2>tell us about yourself</h2>
+
         <ProfileForm
+          profile={this.props.userProfile}
           buttonText='create profile'
-          onComplete={this.handleProfileCreate} />
-      </section>
+          onComplete={handleComplete}
+        />
+      </div>
     );
   }
 }
 
 let mapStateToProps = (state) => ({
-  profile: state.profile,
+  userProfile: state.userProfile,
 });
 
 let mapDispatchToProps = (dispatch) => ({
-  profileCreate: (profile) => dispatch(profileCreateRequest(profile)),
+  userProfileCreate: (userProfile) => dispatch(userProfileCreateRequest(userProfile)),
+  userProfileUpdate: (userProfile) => dispatch(userProfileUpdateRequest(userProfile)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Settings);
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsContainer);
