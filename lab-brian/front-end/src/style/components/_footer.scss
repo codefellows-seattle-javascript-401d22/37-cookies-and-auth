@@ -1,0 +1,18 @@
+.footer {
+  background: $color-primary-light;
+  height: 8vw;
+  padding: 2.5vw;
+}
+.footer p {
+  text-align: right;
+}
+.footer i {
+  font-size: 3vw;
+  color: $color-primary-dark;
+}
+// .fa-github, .fa-linkedin {
+//   color: -webkit-linear-gradient($red, $orange);
+//   color: -moz-linear-gradient($red, $orange);
+//   color: -o-linear-gradient($red, $orange);
+//   color: linear-gradient($red, $orange);
+// }

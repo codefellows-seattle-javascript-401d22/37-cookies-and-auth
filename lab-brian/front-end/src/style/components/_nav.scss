@@ -1,0 +1,79 @@
+.navbar {
+  background: $color-primary-dark;
+  height: 8vw;
+  padding: 2.5vw;
+}
+.logo svg {
+  height: 8vw;
+}
+.navbar h1 {
+  color: $color-primary-light;
+  text-decoration: none;
+  display: inline-block;
+  font-size: $font-lg;
+  transform: translate(0, -1.5vw);
+}
+.navbar .logo {
+  display: inline-block;
+}
+.logoOuter:hover svg #path1 {
+  fill:$red !important;
+}
+.logoOuter:hover svg #path2 {
+  fill:$orange !important;
+}
+.logoOuter:hover h1, .navLinks a:hover, .fa-github:hover, .fa-linkedin:hover {
+  background: -webkit-linear-gradient($red, $orange);
+  background: -moz-linear-gradient($red, $orange);
+  background: -o-linear-gradient($red, $orange);
+  background: linear-gradient($red, $orange);
+  -webkit-background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.logoOuter {
+  position: absolute;
+}
+.navLinks, .navbar button {
+  float: right;
+}
+.navLinks li {
+  display: inline-block;
+  transform: translate(0, 2.75vw);
+  margin-left: 3vw;
+}
+.navbar button {
+  margin-left: 3vw;
+  transform: translate(0, 1.25vw);
+  color: #fff;
+  background: $color-primary-light;
+  text-decoration: none;
+  font-size: 3.5vw;
+  font-family: 'Roboto', sans-serif;
+  padding: 1vw 2.5vw;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+}
+.navbar button:hover {
+  background: -webkit-linear-gradient($red, $orange);
+  background: -moz-linear-gradient($red, $orange);
+  background: -o-linear-gradient($red, $orange);
+  background: linear-gradient($red, $orange);
+}
+.navLinks a {
+  color: $color-primary-light;
+  text-decoration: none;
+  font-size: $font-md;
+  font-family: 'Roboto', sans-serif;
+}
+
+// a svg:hover #facebook,
+// a svg:hover #instagram { 
+//   fill: #111;
+// }
+
+
